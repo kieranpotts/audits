@@ -42,12 +42,10 @@ documentation ecosystem:
   Capture _when, and in what order_, the work gets done.
 
 - **🔍 Architecture Audits**:
-  Evaluate the as-built system's architecture on its own terms – structural
-  findings, point-in-time (this repository).
+  Evaluate the as-built system's architecture (this repository).
 
 - [**⚠️ Risk Register**](https://github.com/kieranpotts/risks):
-  Records the security and privacy risks the system carries, and tracks their
-  mitigation over time. This – not audits – is where security review lives.
+  Records the security and privacy risks the system carries.
 
 In addition, the [**skills**](https://github.com/kieranpotts/skills) collection
 provides an agentic workflow that operates across all six repositories.
