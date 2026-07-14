@@ -1,9 +1,12 @@
-# Skills
+# Agent skills
 
-Agent harnesses are converging on supporting the `./agent/skills/` path for dynamic retrieval of project-specific skills that are compatible with the [Agent Skills](https://agentskills.io/) conventions.
+Skills available to agents in this repository are:
 
-This is the primary skills path detected by OpenAI Codex, and it is supported as an alternative, agent-agnostic path by GitHub Copilot / VS Code, Gemini CLI, Google Antigravity, OpenCode, and Pi.
+- **[Scaffold audit](./scaffold-audit/)**:
+  Cuts an  `audit/<slug>` branch from `main`, fills in some initial details,
+  and opens a draft pull request.
 
-As of May 2026, Claude Code and Cursor do NOT dynamically retrieve skills from this path. If you use these agent harnesses you will need to find a workaround, eg. using symlinks from `.claude/skills/`.
+- **[Finalize audit](./finalize-audit/)**:
+  Lands an audit in the `main` trunk.
 
-See https://github.com/kieranpotts/skills for a template for AI skills.
+A typical journey runs: scaffold → review via PR → finalize.

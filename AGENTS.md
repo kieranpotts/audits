@@ -54,13 +54,13 @@ Unlike a design change, an audit has no lifecycle state machine. An audit is
 scoped, performed, and merged in one pass.
 
 1. An audit is opened as a pull request on an `audit/<slug>` branch,
-   scaffolded by the [`draft-audit`](./.agents/skills/draft-audit/) skill.
+   scaffolded by the [scaffold audit](./.agents/skills/scaffold-audit/) skill.
 
 2. The report is reviewed via normal pull request comments. No discussion
    thread is required. An audit is a finding to review, not a decision to
    debate.
 
-3. Once review is settled, the [`land-audit`](./.agents/skills/land-audit/)
+3. Once review is settled, the [finalize audit](./.agents/skills/finalize-audit/)
    skill can be used to squash-merge the pull request and update the index.
 
 ## Rules
