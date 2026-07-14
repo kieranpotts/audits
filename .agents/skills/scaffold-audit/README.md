@@ -1,12 +1,12 @@
 # Scaffold audit
 
-Prepares an new audit report and opens a draft PR.
+Prepares a new audit report and opens a draft PR.
 
 ## What it does
 
 - Creates an `audit/<slug>` branch from `main`.
 
-- Asks you a few question and fills out the headers and some initial sections
+- Asks you a few questions and fills out the headers and some initial sections
   of the audit report.
 
 - Writes the draft report to `audits/YYYY-MM-DD-<slug>/README.md`.

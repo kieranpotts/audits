@@ -29,7 +29,7 @@ audits/
 5.  Write up the report. Add supporting artifacts to the
     `audits/YYYY-MM-DD-<slug>/` directory, referenced from the `README.md`.
 
-6.  Add the audit to index in the `audits/INDEX.md` file.
+6.  Add the audit to the index in the `audits/INDEX.md` file.
 
 7.  Open the PR for comments.
 

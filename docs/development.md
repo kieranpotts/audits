@@ -21,5 +21,5 @@ This installs all hook types declared in `.pre-commit-config.yaml`
 (`pre-commit`, `commit-msg`).
 
 Edit `./.pre-commit-config.yaml` to configure the pre-commit validation checks
-you want for your project See the [pre-commit](https://pre-commit.com) docs for
+you want for your project. See the [pre-commit](https://pre-commit.com) docs for
 details.

@@ -15,7 +15,7 @@ production. A change is merged only once the corresponding code is live, so
 `main` is always current.
 
 An architecture audit works differently. It is a snapshot, accurate as of the
- commit it examined, and immutable once merged to `main`.
+commit it examined, and immutable once merged to `main`.
 
 The [audit index](../audits/INDEX.md) accumulates a chronological trail of
 audits, each dated and scoped, so a reader can see when the system was last

@@ -44,7 +44,7 @@ filesystem directories.
 2.  Do your audit against the target codebase. See the [documentation](./docs/)
     for guidance on doing a good audit.
 
-3.  Write up you report. Use [`TEMPLATE.md`](./audits/TEMPLATE.md) as a basis.
+3.  Write up your report. Use [`TEMPLATE.md`](./audits/TEMPLATE.md) as a basis.
     Save the report at `audits/YYYY-MM-DD-<slug>/README.md`, with the metadata
     header filled in – Auditors, Date, Scope (`owner/repo@commit`).
 

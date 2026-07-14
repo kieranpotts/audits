@@ -13,7 +13,7 @@ This is documentation, not code. There's nothing to build, lint, or run.
 
 Audits are scoped to architecture. Security and privacy review is a separate
 concern, done through threat modeling and tracked in the
-[risk register](https://github.com/kieranpotts/risks) register.
+[risk register](https://github.com/kieranpotts/risks).
 
 An audit is NOT living documentation kept in sync with production. Each audit
 report is a snapshot, true at the moment it was performed, immutable once

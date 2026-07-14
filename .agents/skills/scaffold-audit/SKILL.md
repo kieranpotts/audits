@@ -21,7 +21,7 @@ if not obvious from the context. The agent may also ask the user questions to
 help it fill out the front-matter in the audit report.
 
 **Output**: The agent writes a new file to `audits/YYYY-MM-DD-<slug>/README.md`,
-commits it to an `audit/<slug>` branches, pushes is to the upstream origin
+commits it to an `audit/<slug>` branch, pushes it to the upstream origin
 repository, and opens a draft pull request. The agent confirms the outcome.
 
 ##  Instructions
@@ -84,7 +84,7 @@ repository, and opens a draft pull request. The agent confirms the outcome.
 
     Output a summary of your actions.
 
-##  Rules
+## Rules
 
 -   **One audit per branch and pull request.**
 
@@ -102,7 +102,7 @@ repository, and opens a draft pull request. The agent confirms the outcome.
     codebase and writing the findings, themes, and recommendations sections
     is a separate step.
 
-##  Success criteria
+## Success criteria
 
 -   **Branch `audit/<slug>` exists and is checked out.**
 
