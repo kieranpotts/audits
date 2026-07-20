@@ -1,6 +1,7 @@
 # 🔍 Architecture Audits
 
-**A template for capturing audits of a system's architecture.**
+**A template for capturing audits of a system's architecture** under
+version control.
 
 This repository is the home of architecture audits for [Project Name]. It is a
 permanent archive of standalone, point-in-time evaluations of the as-built
@@ -24,11 +25,6 @@ An architectural audit is evaluation only. It is not the role of audit reports
 to suggest fixes or alternative designs. And security and privacy review is
 out-of-scope — that is the subject of the
 [risk register](https://github.com/kieranpotts/risks).
-
-> [!NOTE]
-> See **[TS-3: Design Docs](https://github.com/kieranpotts/standards/tree/latest/dev/src/003)**.
-> for more guidance on preparing and maintaining architecture audit reports,
-> as well as other forms of design doc.
 
 ## Ecosystem
 
