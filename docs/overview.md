@@ -1,53 +1,23 @@
 # Overview
 
-An audit is a point-in-time evaluation of what a system's architecture actually
-is. It is distinct from [design docs](https://github.com/kieranpotts/design),
-which are a living description of what the architecture is intended to be
-right now.
+An architecture audit is a point-in-time evaluation of a system's design.
 
-Audits are scoped to architecture. Security and privacy review should be
-handled separately in specialist threat modeling sessions.
+An architecture audit is scoped to the structural design of a system. The
+process involves static review of code and data structures. The auditors look
+for code smells and anti-patterns, things like shallow abstractions, tangled
+dependencies, single-caller wrappers, leaky boundaries, and repeated patterns.
 
-## Point-in-time
+An architecture audit report is distinct from the system's
+[design docs](https://github.com/kieranpotts/design). Design docs are a living
+description of what the architecture is _intended_ to be. By comparison, an
+audit report is a snapshot evaluation of the _actual_ architecture, as it exists
+in production at a point in time.
 
-Design docs, RFCs, and specifications are all kept in lock-step with
-production. A change is merged only once the corresponding code is live, so
-`main` is always current.
+Once complete, an audit report becomes a permanent, immutable record within a
+chronologically-ordered stack of historical audit reports. By comparison,
+design docs are living documentation, evolving in lock-step with the production
+system.
 
-An architecture audit works differently. It is a snapshot, accurate as of the
-commit it examined, and immutable once merged to `main`.
-
-The [audit index](../audits/INDEX.md) accumulates a chronological trail of
-audits, each dated and scoped, so a reader can see when the system was last
-examined, and what was found when.
-
-## Blind to the intended design
-
-An audit evaluates the as-built system on its own terms. It does not consider
-the [design docs](https://github.com/kieranpotts/design) or compare
-the code against the intended architecture.
-
-The blindness is what makes an audit useful. A reviewer who already knows
-the intended architecture, and the trade-offs already considered, tends to
-rediscover the same trade-offs. A reviewer with no prior context is more likely
-to surface genuinely novel problems – smells that crept in silently, or were
-never considered in the first place.
-
-## Structural design
-
-An architecture audit is scoped to the structural design of a system. It looks
-for code smells like shallow abstractions, tangled dependencies, single-caller
-wrappers, leaky boundaries, and repeated patterns. Findings are fed into
-downstream refactoring work.
-
-Security and privacy review is deliberately out of scope. Injection points,
-broken authentication or authorization boundaries, unsafe secrets handling, and
-similar concerns are not audit findings. They are identified through threat
-modeling and tracked in the [risk register](https://github.com/kieranpotts/risks).
-
-Keeping the two apart means each stays sharp. An audit is a fresh structural
-read of the code, while the risk register is a living account of security
-exposure over time.
-
-If an audit incidentally spots a security concern, the finding should be referred
-to the risk register, rather than be recorded in an architecture audit report.
+Of course, findings from an architecture audit may influence the evolutionary
+design of the system. Architecture audits may feed downstream refactoring work,
+with the resulting changes ultimately being reflected in the design docs.

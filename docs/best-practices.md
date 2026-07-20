@@ -1,48 +1,62 @@
 # Best practices
 
-Practical guidance for running a good audit.
+Practical guidance for running a good architecture audit session, and writing
+up your report.
+
+## Static structure, not runtime qualities
+
+It is RECOMMENDED that architecture audits be scoped to an evaluation of
+the static structure of code and data.
+
+It is best practice for security and privacy reviews to be handled separately,
+via specialist threat modeling processes, with findings maintained in a
+[risk register](https://github.com/kieranpotts/risks).
+
+Likewise, performance and other runtime qualities are best evaluated through
+separate processes — in this case, through dynamic testing.
+
+Inevitably there will be some cross-over between architecture audits, security
+reviews, and dynamnic testing. After all, security, privacy, and performance
+are core architectural concerns. But by maintaining security audits and
+performance tests separately, architecture audits are left to be more narrowly
+focused on the long-term static health of a system — its maintainability,
+extensibility, portability, auditability, and so on.
+
+## Fresh perspectives
+
+Architecture audits work best when they are blind to the intended design
+or to the trade-offs already considered.
+
+A reviewer with no prior context is more likely to surface genuinely novel
+problems – smells that crept in silently, or were never considered in the first
+place.
+
+It is not always possible to have different people review a system from those
+who designed and built it. If this is not possible in your organization, you
+can leverage AI tools to offer fresh perspectives on the structural health of
+the systems under your stewardship.
 
 ## Cite evidence, not impressions
 
-Every finding names specific files and lines. "The API layer is messy" is not a
-finding, since it gives the reader nothing to check. "`handlers/orders.go:120-180`
-duplicates the same three-step validation across five handlers" is a proper,
-actionable finding.
+Every finding SHOULD name specific files and lines.
 
-## Observation before opinion
+"The API layer is messy" is not an actionable finding. More useful is something
+like:
 
-State what you see and the cost it imposes before offering any suggestion. A
-pointer toward a fix is optional, and should stay a pointer – a sentence, not
-a worked-out redesign.
+> `handlers/orders.go:120-180` duplicates the same three-step validation
+> across five handlers.
 
-## "Not worth fixing" is a valid finding
+## Observation, not solutions
 
-Not every smell earns a fix. If the cost of the change would exceed the cost
-of the smell, say so, and record it as low priority with the rationale. A
-report that recommends fixing everything it finds is not being honest about
-trade-offs.
+State what you see and the cost it imposes.
 
-## Stay within the codebase's idioms
+Avoid offering fixes or alternative designs. An audit reports SHOULD be
+evaluation only.
 
-Don't flag a consistent style choice as a smell just because you'd have made
-a different one. An audit is for structural problems, not for imposing a
-personal preference on an otherwise-consistent codebase.
+## Prioritize by impact
 
-## Prioritize by impact over effort
+Order findings by how much they'd simplify the system and reduce the cost of
+its maintenance and future development.
 
-Order findings by how much they'd simplify the rest of the system, against how
-invasive the fix would be.
-
-A 30-item backlog does not get acted on. A report that leads with the three
-findings worth fixing first does.
-
-## Stay evaluation-only
-
-An audit does not change code, file issues, or open pull requests against
-the audited repository. The report is the deliverable. What happens next is
-for the target project's own team to decide.
-
-## Keep the report immutable once merged
-
-Do not go back and edit a merged audit report as the system changes underneath
-it. If the findings need reassessing, run a new audit.
+As a general rule, the changes that will have the biggest impact — even if
+they are expensive to do — are the ones most worth doing.

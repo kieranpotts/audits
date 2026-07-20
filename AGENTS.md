@@ -82,22 +82,21 @@ suggestions.
   broken auth boundaries, unsafe secrets handling — are out-of-scope; these
   concerns belong in the [risk register](https://github.com/kieranpotts/risks).
   Also out-of-scope is catching drift from the intended architecture; design
-  docs SHOULD NOT be reviewed as part of an architectural audit, only the
-  source code of the system itself.
-
-- Every finding MUST cite specific files and lines. Vague findings (eg. "the
-  API layer is messy") are not acceptable — such findings cannot be easily
-  actioned.
-
-- Once merged, an audit report MUST NOT be further edited. Audit reports on
-  `main` MUST be treated as immutable, since they are snapshots in time, not
-  living documentation. Reassessments of the architecture are done by adding
-  new audit reports, not by amending previous ones.
+  docs SHOULD NOT be reviewed as part of an architecture audit, only the
+  source code and data structures in the as-built system itself.
 
 - Architecture audits are evaluation only. Reports SHOULD NOT suggest fixes
   or alternative designs, only report on possible cruft. No code should be
   changed, or pull requests opened against code repositories, as part of
   an architectural audit. That happens downstream as an outcome of the audit.
+
+- Every finding MUST cite specific files and lines. Vague findings like
+  "the API schema is inconsistent" cannot be easily actioned.
+
+- Once merged, an audit report MUST NOT be further edited. Audit reports on
+  `main` MUST be treated as immutable, since they are snapshots in time, not
+  living documentation. Reassessments of the architecture are done by adding
+  new audit reports, not by amending previous ones.
 
 - The GitHub issue tracker SHOULD be used only for maintenance work on this
   repository itself. Issues SHOULD NOT be used as part of the audit report
