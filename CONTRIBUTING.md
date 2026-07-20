@@ -18,77 +18,75 @@ for the technical standard that underpins this process.
 > SHOULD NOT, OPTIONAL, and MAY herein are to be interpreted as described
 > in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
-## Overview
+## Workflow
 
-An audit is a standalone, point-in-time evaluation of [Project Name]'s
-as-built architecture. Security and privacy review is a separate concern,
-tracked in the [risk register](https://github.com/kieranpotts/risks).
+1.  Decide the target codebase(s) to audit – the repositories, services, or
+    filesystem directories.
 
-Unlike the sibling [design docs](https://github.com/kieranpotts/design)
-repository, an audit is not living documentation. Each audit report is a
-snapshot, true at the moment it was performed, and immutable once merged into
-the `main` trunk. By comparison, design docs evolve in lock-step with the
-production system.
-
-## The audit workflow
-
-Unlike a design change, an audit has no lifecycle state machine. It is
-scoped, performed, and merged in a single pass.
-
-### Step 1: Scope the audit
-
-Decide the target codebase(s) to audit – which repositories, services, or
-filesystem directories.
-
-### Step 2: Open a pull request
-
-1.  Branch off `main` using the convention `audit/<slug>`, where `<slug>`
+2.  Branch off `main` using the convention `audit/<slug>`, where `<slug>`
     is a short, hyphen-delimited description, eg. `audit/payment-service`.
 
-2.  Do your audit against the target codebase. See the [documentation](./docs/)
+3.  Do your audit against the target codebase. See the [documentation](./docs/)
     for guidance on doing a good audit.
 
-3.  Write up your report. Use [`TEMPLATE.md`](./audits/TEMPLATE.md) as a basis.
-    Save the report at `audits/YYYY-MM-DD-<slug>/README.md`, with the metadata
-    header filled in – Auditors, Date, Scope (`owner/repo@commit`).
+4.  Write up your report. Use the [template](./audits/TEMPLATE.md) as a starting
+    point.
 
-4.  Prepend a row to [`audits/INDEX.md`](./audits/INDEX.md),
-    in the same commit.
+5.  Save the report at `audits/YYYY-MM-DD-<slug>/README.md`, with the metadata
+    header filled in.
 
-5.  Commit your changes and open a pull request titled `audit: <description>`,
-    where `<description>` is a short prose title, written full lowercase,
-    eg. `audit: payment service architecture review`.
+6.  Prepend a row to [audit index](./audits/INDEX.md).
 
-### Step 3: Review
+7.  Commit your changes and open a pull request. For both the commit message
+    and the PR title, use the format `audit: <description>`, where
+    `<description>` is a short prose title, written full lowercase, eg.
+    `audit: payment service architecture review`.
 
-Gather feedback via normal pull request comments. No discussion thread is
-required. An audit is a set of findings to review, not a decision to debate.
+8.  Gather feedback via the normal review process.
 
-### Step 4: Merge
+9.  Resolve PR comments.
 
-Once review is settled, squash-merge the pull request, with a message of
-the form `audit: <description>`. Delete the branch.
+10. Once the review is complete, squash-merge the pull request, with the
+    commit message taking the form `audit: <description>`. Delete the
+    `audit/*` branch.
 
 ## Rules
 
 - Audit reports MUST be written in American English.
 
-- Every report MUST be dated, scoped, and cite the exact `repo@commit` examined.
+- Every report MUST be dated.
 
-- Every finding MUST cite specific files and lines, state what is observed and
-  the cost it imposes, before optionally pointing toward a fix – never a
-  worked-out alternative design.
+- Every audit report MUST be expressly scoped to either the whole system or a
+  specific part of it.
 
-- An audit MUST NOT read the design documentation, and MUST NOT report
-  drift from it.
+- If possible, the exact revision of the software that's audited SHOULD be
+  specified, eg. `<team>/<repo>@<commit-hash>`.
 
-- An audit MUST NOT change any code, file issues, or open pull requests
-  against the audited repositories.
+- An audit report MUST be scoped exclusively to the as-built static structure of
+  the system's code and data. Security and privacy findings – eg. injection points,
+  broken auth boundaries, unsafe secrets handling — are out-of-scope; these
+  concerns belong in the [risk register](https://github.com/kieranpotts/risks).
+  Also out-of-scope is catching drift from the intended architecture; design
+  docs SHOULD NOT be reviewed as part of an architectural audit, only the
+  source code of the system itself.
 
-- Once merged, a report is immutable. To reassess a system, open a new audit.
+- Every finding MUST cite specific files and lines. Vague findings (eg. "the
+  API layer is messy") are not acceptable — such findings cannot be easily
+  actioned.
 
-- The GitHub issue tracker is used only for maintenance work on this repository
-  itself.
+- Once merged, an audit report MUST NOT be further edited. Audit reports on
+  `main` MUST be treated as immutable, since they are snapshots in time, not
+  living documentation. Reassessments of the architecture are done by adding
+  new audit reports, not by amending previous ones.
+
+- Architecture audits are evaluation only. Reports SHOULD NOT suggest fixes
+  or alternative designs, only report on possible cruft. No code should be
+  changed, or pull requests opened against code repositories, as part of
+  an architectural audit. That happens downstream as an outcome of the audit.
+
+- The GitHub issue tracker SHOULD be used only for maintenance work on this
+  repository itself. Issues SHOULD NOT be used as part of the audit report
+  workflow.
 
 ## Contributor license agreement
 

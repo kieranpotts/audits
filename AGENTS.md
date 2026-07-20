@@ -15,10 +15,12 @@ Audits are scoped to architecture. Security and privacy review is a separate
 concern, done through threat modeling and tracked in the
 [risk register](https://github.com/kieranpotts/risks).
 
-An audit is NOT living documentation kept in sync with production. Each audit
-report is a snapshot, true at the moment it was performed, immutable once
-merged into the main trunk. The [audit index](./audits/INDEX.md) is the
-append-only catalog of every audit performed on the system historically.
+An audit is NOT living documentation kept in sync with production. Rather, each
+audit report is a snapshot in time, true at the moment it was performed, and
+immutable once merged into the `main` trunk.
+
+The [audit index](./audits/INDEX.md) is the append-only catalog of every audit
+performed against the system historically.
 
 The process of auditing the system involves reading and analyzing the source
 code, and generating a report on the system's structural health. Code smells
@@ -36,66 +38,72 @@ suggestions.
 
 ## Project structure
 
-- **`audits/`**:
-  One directory per audit report (`audits/YYYY-MM-DD-<slug>/`), dated by
-  when the audit was performed.
+- **`audits/`** — One directory per audit report (`audits/YYYY-MM-DD-<slug>/`),
+  dated by when the audit was performed.
 
-  - **`audits/INDEX.md`** is the catalog of every audit merged into `main`,
+  - **`audits/INDEX.md`** — The catalog of every audit merged into `main`,
     newest first.
 
-  - **`audits/TEMPLATE.md`** is the starting point for a new audit report.
+  - **`audits/TEMPLATE.md`** — The starting point for a new audit report.
 
-- **`docs/`**:
-  General guidance for humans on running and maintaining audits.
+- **`docs/`** — General guidance for humans on running and maintaining audits.
 
-## How an audit is introduced
+## Workflow
 
-Unlike a design change, an audit has no lifecycle state machine. An audit is
-scoped, performed, and merged in one pass.
+1.  An new audit report is introduced via an `audit/<slug>` branch. It is
+    RECOMMENDED that agents follow the
+    [scaffold audit](./.agents/skills/scaffold-audit/) skill to help
+    prepare a new audit report in a new branch, ready for the user to
+    complete the report.
 
-1. An audit is opened as a pull request on an `audit/<slug>` branch,
-   scaffolded by the [scaffold audit](./.agents/skills/scaffold-audit/) skill.
+2.  The user undertakes the architecture audit and writes up the report.
 
-2. The report is reviewed via normal pull request comments. No discussion
-   thread is required. An audit is a finding to review, not a decision to
-   debate.
+3.  The user opens a pull request and invites peers to review the report.
 
-3. Once review is settled, the [finalize audit](./.agents/skills/finalize-audit/)
-   skill can be used to squash-merge the pull request and update the index.
+4.  Once the review is complete, the audit report is squash-merged into the
+    `main` trunk and the PR is closed. It is RECOMMENDED that agents follow
+    [finalize audit](./.agents/skills/finalize-audit/) skill if the user
+    requests help completing this step.
 
 ## Rules
 
-- Write in American English.
+- Audit reports MUST be written in American English.
 
-- Every audit report MUST be dated, scoped, and cite the exact `repo@commit`
-  examined, so it is a reproducible point-in-time snapshot.
+- Every report MUST be dated.
 
-- An audit is scoped to architecture. It MUST NOT report security or privacy
-  findings – injection points, broken auth boundaries, unsafe secrets handling,
-  and the like. Those belong in the
-  [risk register](https://github.com/kieranpotts/risks).
+- Every audit report MUST be expressly scoped to either the whole system or a
+  specific part of it.
 
-- Every finding MUST cite specific files and lines. Vague findings ("the
-  API layer is messy") are not acceptable.
+- If possible, the exact revision of the software that's audited SHOULD be
+  specified, eg. `<team>/<repo>@<commit-hash>`.
 
-- A finding MUST state what is observed and the cost it imposes before
-  offering any suggestion. A pointer toward a fix is OPTIONAL and MUST stay
-  a pointer, never a worked-out alternative design.
+- An audit report MUST be scoped exclusively to the as-built static structure of
+  the system's code and data. Security and privacy findings – eg. injection points,
+  broken auth boundaries, unsafe secrets handling — are out-of-scope; these
+  concerns belong in the [risk register](https://github.com/kieranpotts/risks).
+  Also out-of-scope is catching drift from the intended architecture; design
+  docs SHOULD NOT be reviewed as part of an architectural audit, only the
+  source code of the system itself.
 
-- An audit evaluates the as-built system on its own terms. It MUST NOT read
-  the design documentation, and MUST NOT report drift from it.
+- Every finding MUST cite specific files and lines. Vague findings (eg. "the
+  API layer is messy") are not acceptable — such findings cannot be easily
+  actioned.
 
-- An audit MUST NOT change any code, file issues, or open pull requests
-  against the audited repositories. Discovery only.
+- Once merged, an audit report MUST NOT be further edited. Audit reports on
+  `main` MUST be treated as immutable, since they are snapshots in time, not
+  living documentation. Reassessments of the architecture are done by adding
+  new audit reports, not by amending previous ones.
 
-- Once merged, an audit report is immutable. To reassess a system, run a
-  new audit – never edit a merged one.
+- Architecture audits are evaluation only. Reports SHOULD NOT suggest fixes
+  or alternative designs, only report on possible cruft. No code should be
+  changed, or pull requests opened against code repositories, as part of
+  an architectural audit. That happens downstream as an outcome of the audit.
 
-- The GitHub issue tracker is used only for maintenance work on this
-  repository itself (via the `MAINTENANCE` template).
+- The GitHub issue tracker SHOULD be used only for maintenance work on this
+  repository itself. Issues SHOULD NOT be used as part of the audit report
+  workflow.
 
 ## Skills
 
-The [`.agents/skills/`](./.agents/skills/) directory is reserved for
-on-demand skills that help run and maintain the audit workflow. See the
-[README](./.agents/skills/README.md) for details.
+Skills to help agents maintain this repository are included in the
+[`.agents/skills/`](./.agents/skills/) directory.

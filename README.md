@@ -5,7 +5,7 @@ version control.
 
 This repository is the home of architecture audits for [Project Name]. It is a
 permanent archive of standalone, point-in-time evaluations of the as-built
-system's structural health.
+system's structural integrity.
 
 An audit evaluates a system's architecture on its own terms, without
 cross-referencing the _intended_ architecture captured in the
@@ -13,13 +13,14 @@ cross-referencing the _intended_ architecture captured in the
 no prior knowledge of the trade-offs already considered. The purpose is to
 surface genuinely fresh insights.
 
-An audit report captures prioritized findings on structural health. It logs
-code smells and anti-patterns discovered in the code, such as shallow
-abstractions, tangled dependencies, single-caller wrappers, leaky boundaries,
-and repeated patterns.
+An audit report captures prioritized findings on the structural integrity of
+the system. It logs code smells and anti-patterns discovered in the code, such
+as shallow abstractions, tangled dependencies, single-caller wrappers, leaky
+boundaries, and repeated patterns.
 
-Each audit report is a snapshot in time, and immutable once merged into the
-`main` trunk.
+Each audit report is a snapshot in time, and so immutable once merged into the
+`main` trunk. By comparison, [design docs](https://github.com/kieranpotts/design)
+evolve in lock-step with the production system.
 
 An architectural audit is evaluation only. It is not the role of audit reports
 to suggest fixes or alternative designs. And security and privacy review is
