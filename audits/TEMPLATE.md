@@ -20,12 +20,7 @@ State what was deliberately out of scope, so the audit's coverage can be judged.
 ## Findings
 
 The core of the audit. Each finding names a structural problem in the as-is
-system, its location, and why it matters. Evaluation only — suggest, do not
-prescribe improvements. Order by priority.
-
-Security and privacy concerns are out of scope. Refer any you notice to the
-[risk register](https://github.com/kieranpotts/risks) rather than listing them
-here.
+system, its location, and why it matters. Order by priority.
 
 | ID  | Finding     | Type                  | Priority | Location         |
 | --- | ----------- | --------------------- | -------- | ---------------- |
@@ -58,10 +53,10 @@ Optionally, a suggested way forward — how it might be improved.
 
 ## Themes
 
-Recurring patterns across the findings — the systemic issues that individual
-findings are symptoms of. Often more valuable than any single finding.
+Are there any recurring patterns across the findings, which could hint at
+systemic issues that the findings are merely symptoms of?
 
-## Recommendations
+## Priorities
 
-A prioritized shortlist of what to address first. This list may feed
-downstream refactoring and design work.
+Write up a pioritized shortlist of findings that will bring the most value
+in being resolved.

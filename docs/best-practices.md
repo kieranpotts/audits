@@ -60,3 +60,9 @@ its maintenance and future development.
 
 As a general rule, the changes that will have the biggest impact — even if
 they are expensive to do — are the ones most worth doing.
+
+## Themes
+
+Look for recurring patterns across the findings. You're looking for systemic
+issues that individual findings are merely symptoms of. This sort of insight
+is often more valuable than any single finding.

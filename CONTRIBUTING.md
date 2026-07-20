@@ -33,7 +33,8 @@ for the technical standard that underpins this process.
     point.
 
 5.  Save the report at `audits/YYYY-MM-DD-<slug>/README.md`, with the metadata
-    header filled in.
+    header filled in. Add supporting artifacts to the `audits/YYYY-MM-DD-<slug>/`
+    directory, referenced from the `README.md`.
 
 6.  Prepend a row to [audit index](./audits/INDEX.md).
 
