@@ -1,9 +1,9 @@
 # Audit title, eg. "Payment service architecture review"
 
-- **Auditors**: Your Name [@your-github-handle], ...
-- **Audit date**: YYYY-MM-DD
-- **Audit PR**: #...
-- **Scope**: owner/repo@<commit>, or the subsystems/services examined
+- **Auditors:** Your Name [@your-github-handle], ...
+- **Audit date:** YYYY-MM-DD
+- **Audit PR:** #...
+- **Scope:** owner/repo@<commit>, or the subsystems/services examined
 
 ## Summary
 
@@ -30,12 +30,10 @@ system, its location, and why it matters. Order by priority.
 
 ### F01 — Short title
 
-- **Type**: Shallow abstraction | Tangled dependency | Single-caller wrapper |
+- **Type:** Shallow abstraction | Tangled dependency | Single-caller wrapper |
   Duplication | Leaky boundary | Inverted dependency | Misnamed abstraction | ...
-
-- **Priority**: HIGH | MEDIUM | LOW
-
-- **Location**: The component, module, or path where it lives.
+- **Priority:** HIGH | MEDIUM | LOW
+- **Location:** The component, module, or path where it lives.
 
 What the problem is — describe the structure that exists. Why it matters —
 the cost it imposes (changeability, coupling, comprehension).
@@ -43,11 +41,9 @@ Optionally, a suggested way forward — how it might be improved.
 
 ### F02 — Short title
 
-- **Type**: ...
-
-- **Priority**: ...
-
-- **Location**: ...
+- **Type:** ...
+- **Priority:** ...
+- **Location:** ...
 
 ...
 
@@ -58,5 +54,5 @@ systemic issues that the findings are merely symptoms of?
 
 ## Priorities
 
-Write up a pioritized shortlist of findings that will bring the most value
+Write up a prioritized shortlist of findings that will bring the most value
 in being resolved.
