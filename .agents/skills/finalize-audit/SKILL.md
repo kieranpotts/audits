@@ -12,11 +12,11 @@ metadata:
 
 # Finalize audit
 
-**Input**: The agent requires knowledge of the target architectural audit
+**Input:** The agent requires knowledge of the target architectural audit
 that is now final. The agent may prompt the user to specify the target audit
 report, if not obvious from the context.
 
-**Output**: The agent merges the pull request and deletes the `audit/*` branch.
+**Output:** The agent merges the pull request and deletes the `audit/*` branch.
 The agent confirms the outcome.
 
 ##  Instructions

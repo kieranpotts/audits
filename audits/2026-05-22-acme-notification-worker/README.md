@@ -29,9 +29,9 @@ and deployment configuration were out of scope.
 
 ### F01 — Queue consumer imports template rendering directly
 
-- **Type**: Tangled dependency
-- **Priority**: MEDIUM
-- **Location**: `src/consumer.ts`, `src/templates/render.ts`
+- **Type:** Tangled dependency
+- **Priority:** MEDIUM
+- **Location:** `src/consumer.ts`, `src/templates/render.ts`
 
 `src/consumer.ts`, whose job is to read messages off the queue and dispatch
 them, imports `render()` from `src/templates/render.ts` directly and calls

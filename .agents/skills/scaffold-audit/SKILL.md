@@ -14,13 +14,13 @@ metadata:
 
 # Scaffold audit
 
-**Input**: The agent requires a description of the target software system,
+**Input:** The agent requires a description of the target software system,
 subsystem, services, or other component that is the subject of the
 architectural review. The agent may prompt the user for this information
 if not obvious from the context. The agent may also ask the user questions to
 help it fill out the front-matter in the audit report.
 
-**Output**: The agent writes a new file to `audits/YYYY-MM-DD-<slug>/README.md`,
+**Output:** The agent writes a new file to `audits/YYYY-MM-DD-<slug>/README.md`,
 commits it to an `audit/<slug>` branch, pushes it to the upstream origin
 repository, and opens a draft pull request. The agent confirms the outcome.
 

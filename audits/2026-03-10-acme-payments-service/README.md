@@ -45,9 +45,9 @@ retry logic has to be applied three times.
 
 ### F02 — `PaymentGateway` wraps a single caller
 
-- **Type**: Single-caller wrapper
-- **Priority**: LOW
-- **Location**: `src/gateway/PaymentGateway.ts`
+- **Type:** Single-caller wrapper
+- **Priority:** LOW
+- **Location:** `src/gateway/PaymentGateway.ts`
 
 `PaymentGateway` exists solely to be called from
 `src/checkout/CheckoutService.ts`. It adds an indirection layer without
