@@ -16,7 +16,7 @@ Likewise, performance and other runtime qualities are best evaluated through
 separate processes — in this case, through dynamic testing.
 
 Inevitably there will be some cross-over between architecture audits, security
-reviews, and dynamnic testing. After all, security, privacy, and performance
+reviews, and dynamic testing. After all, security, privacy, and performance
 are core architectural concerns. But by maintaining security audits and
 performance tests separately, architecture audits are left to be more narrowly
 focused on the long-term static health of a system — its maintainability,
@@ -50,7 +50,7 @@ like:
 
 State what you see and the cost it imposes.
 
-Avoid offering fixes or alternative designs. An audit reports SHOULD be
+Avoid offering fixes or alternative designs. An audit report SHOULD be
 evaluation only.
 
 ## Prioritize by impact
