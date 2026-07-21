@@ -1,4 +1,4 @@
-# Finalize audit
+# Complete audit
 
 Lands an audit in the `main` trunk.
 
@@ -14,14 +14,14 @@ Lands an audit in the `main` trunk.
 
 From an `audit/*` branch:
 
-> Finalize audit.
+> Complete audit.
 
 > Merge the audit.
 
-> This is finalized.
+> This is completed.
 
 Or specify the target PR:
 
-> Finalize #42
+> Complete #42
 
-> Finalize the most recent audit.
+> Complete the most recent audit.

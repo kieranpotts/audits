@@ -62,7 +62,7 @@ suggestions.
 
 4.  Once the review is complete, the audit report is squash-merged into the
     `main` trunk and the PR is closed. It is RECOMMENDED that agents follow
-    [finalize audit](./.agents/skills/finalize-audit/) skill if the user
+    [complete audit](./.agents/skills/complete-audit/) skill if the user
     requests help completing this step.
 
 ## Rules

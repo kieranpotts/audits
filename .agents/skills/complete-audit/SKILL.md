@@ -1,16 +1,16 @@
 ---
-name: finalize-audit
+name: complete-audit
 description: >-
   Land an audit in the `main` trunk. Use this skill when the user says
-  something like "finalize this audit", "this is finalized", "merge the audit",
-  "finalize the most recent audit", or "finalize #<pr-number>".
+  something like "complete this audit", "this is completed", "merge the audit",
+  "complete the most recent audit", or "complete #<pr-number>".
 license: MIT
 metadata:
   interactive: yes
   preferred_model: prose-writing
 ---
 
-# Finalize audit
+# Complete audit
 
 Land an audit in the `main` trunk. Merge its pull request once review is settled.
 
@@ -22,7 +22,7 @@ environment, if possible.
   If on `main`, try to determine the target from information in the context
   or environment. Ask the user to specify the target if you cannot discover it
   for yourself. Use the following command to present the user with a list of
-  open audit pull requests, from which they can choose one to finalize:
+  open audit pull requests, from which they can choose one to complete:
 
   ```sh
   gh pr list --search "audit:" --json number,title,headRefName
