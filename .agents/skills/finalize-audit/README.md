@@ -14,7 +14,9 @@ Lands an audit in the `main` trunk.
 
 From an `audit/*` branch:
 
-> Finalize audit
+> Finalize audit.
+
+> Merge the audit.
 
 > This is finalized.
 

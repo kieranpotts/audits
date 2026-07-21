@@ -1,9 +1,9 @@
 ---
 name: finalize-audit
 description: >-
-  Land an audit in the `main` trunk. Merge its pull request once review is
-  settled. Use when the user says "finalize this audit", "merge the audit",
-  "the audit is finalized", or "land the audit PR".
+  Land an audit in the `main` trunk. Use this skill when the user says
+  something like "finalize this audit", "this is finalized", "merge the audit",
+  "finalize the most recent audit", or "finalize #<pr-number>".
 license: MIT
 metadata:
   interactive: yes
@@ -12,37 +12,36 @@ metadata:
 
 # Finalize audit
 
-**Input:** The agent requires knowledge of the target architectural audit
-that is now final. The agent may prompt the user to specify the target audit
-report, if not obvious from the context.
+Land an audit in the `main` trunk. Merge its pull request once review is settled.
 
-**Output:** The agent merges the pull request and deletes the `audit/*` branch.
-The agent confirms the outcome.
+**Input:** Determine the following information from the surrounding context and
+environment, if possible.
 
-##  Instructions
+- Target — REQUIRED.
+  Infer the target audit report from the checked-out branch (`audit/<slug>`).
+  If on `main`, try to determine the target from information in the context
+  or environment. Ask the user to specify the target if you cannot discover it
+  for yourself. Use the following command to present the user with a list of
+  open audit pull requests, from which they can choose one to finalize:
 
-1.  **Identify the audit.**
+  ```sh
+  gh pr list --search "audit:" --json number,title,headRefName
+  ```
 
-    Infer the target from the checked-out branch (`audit/<slug>`). If on
-    `main`, use the user's description, or list open audit pull requests and
-    ask the user to choose:
+**Output:** A merged pull request, with the source `audit/*` branch deleted
+from the upstream "origin" repository.
 
-    ```sh
-    gh pr list --search "audit:" --json number,title,headRefName
-    ```
+## Instructions
 
-2.  **Verify the review is settled.**
+1.  **Verify the review is settled.**
 
-    Confirm review feedback on the pull request has been addressed. Do not
-    merge over unresolved comments without the user's explicit instruction.
+    Confirm review feedback on the pull request has been addressed.
+
+2.  **Confirm with the user that the PR is ready to merge.**
 
 3.  **Merge the pull request.**
 
-    Confirm with the user that the PR is ready to merge. Do not merge without
-    explicit instruction.
-
-    Once confirmed, squash-merge it with an `audit: <short lowercase description>`
-    message:
+    Squash-merge it with the message `audit: <short lowercase description>`:
 
     ```sh
     gh pr merge <number> --squash --subject "audit: <short lowercase description>"
@@ -51,33 +50,35 @@ The agent confirms the outcome.
 4.  **Delete the branch.**
 
     Delete the source `audit/*` branch from the upstream repository, if it is
-    not automatically deleted.
+    not automatically deleted by the PR merge process.
 
 5.  **Confirm the outcomes.**
 
     Output a summary of your actions.
 
-##  Rules
+## Rules
 
--   **Never merge over unresolved review comments without explicit instruction.**
+- **You MUST NOT merge over unresolved review comments without explicit instruction.**
 
--   **Do not merge without explicit instruction from the user.**
+- **You MUST NOT merge without explicit instruction from the user.**
 
--   **Use the squash-merge strategy.**
+- **You MUST use the squash-merge strategy.**
 
-    Use the format `audit: <short lowercase description>` for the squash-commit
-    message.
+- **You SHOULD double-check that the upstream `audit/*`  branch is deleted afterward.**
 
-##  Success criteria
+- **You MUST NOT delete the downstream `audit/*` branch.**
 
--   **The PR is merged.**
+## Success criteria
 
--   **A new squash commit exists on `main`.**
+- **The PR is merged.**
 
-    The message format is `audit: <short lowercase description>`.
+- **A single new squash commit exists on `main`.**
 
--   **The audit exists in the index file.**
+  The message format is `audit: <short lowercase description>`.
 
-    The `audits/INDEX.md` file on `main` includes the new audit's row.
+- **The audit exists in the index file.**
 
--   **Branch `audit/<slug>` no longer exists in the upstream repository.**
+  The `audits/INDEX.md` file on `main` includes a new row for the newly-landed
+  audit report.
+
+- **Branch `audit/<slug>` no longer exists in the upstream repository.**

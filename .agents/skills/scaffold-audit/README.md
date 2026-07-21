@@ -13,12 +13,13 @@ Prepares a new audit report and opens a draft PR.
 
 - Commits, pushes, and opens a draft pull request titled `audit: <description>`.
 
-This skill merely scaffolds a new audit report and its PR for review. It
-does not assist in evaluating the architecture and writing the final report.
-
 ## How to invoke
 
+> Scaffold an audit.
+
 > Draft a new audit report.
+
+> Prepare a new audit report.
 
 > Start an architectural review.
 

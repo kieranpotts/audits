@@ -7,6 +7,12 @@ Skills available to agents in this repository are:
   and opens a draft pull request.
 
 - **[Finalize audit](./finalize-audit/):**
-  Lands an audit in the `main` trunk.
+  After the reviews have been completed, this skill can be used to land
+  the audit report in the `main` trunk.
 
-A typical journey runs: scaffold → review via PR → finalize.
+> [!NOTE]
+> This scaffold skill merely prepares a new, blank audit report. After this
+> step, the user will do the architecture audit and write up the report. For
+> help with the actual architecture audit itself, see the
+> [**audit**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/audit)
+> skill in my global skills collection.
