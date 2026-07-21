@@ -53,13 +53,25 @@ State what you see and the cost it imposes.
 Avoid offering fixes or alternative designs. An audit report SHOULD be
 evaluation only.
 
-## Prioritize by impact
+## Prioritize by impact ÷ effort
 
-Order findings by how much they'd simplify the system and reduce the cost of
-its maintenance and future development.
+For each finding, determine:
 
-As a general rule, the changes that will have the biggest impact — even if
-they are expensive to do — are the ones most worth doing.
+- **Impact:**
+  How much the rest of the codebase will be simplified if the issue is
+  fixed. Findings that unlock other improvements rank high.
+
+- **Effort:**
+  How invasive the change would be. Local renames rank above cross-cutting
+  restructures.
+
+- **Priority:**
+  From the impact and effort scores, determine an overall priority rating
+  of `HIGH`, `MEDIUM`, or `LOW`. The highest priority items are those that
+  will yield the highest impact relative to the effort involved.
+
+Order the findings by priority. The top entry will be the cheapest
+high-impact fix.
 
 ## Themes
 
