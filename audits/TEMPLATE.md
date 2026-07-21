@@ -15,7 +15,7 @@ and the headline concerns. What is the shape of the problem?
 What was examined (repositories, services, directories) and how (eg. static
 reading, dependency graphing, the deletion test, a module-depth walk).
 
-State what was deliberately out of scope, so the audit's coverage can be judged.
+State what was deliberately out-of-scope, so the audit's coverage can be judged.
 
 ## Findings
 

@@ -19,7 +19,7 @@ templating layer, which otherwise have no reason to know about each other.
 
 Examined the `acme/notification-worker` repository at the pinned commit,
 via static reading and a manual import graph across `src/`. Infrastructure
-and deployment configuration were out of scope.
+and deployment configuration were out-of-scope.
 
 ## Findings
 

@@ -27,7 +27,7 @@ On opening this PR (open it as a draft):
       "the API schema is inconsistent" are removed.
 - [ ] Findings are limited to the as-built static structure of the code and
       data. Security/privacy findings and drift-from-design commentary are
-      out of scope and not included.
+      out-of-scope and not included.
 - [ ] The report is evaluation only — no suggested fixes, alternative
       designs, or code/PR changes against the audited repositories.
 
