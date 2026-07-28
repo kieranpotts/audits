@@ -41,7 +41,7 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
     header filled in. Add supporting artifacts to the `audits/YYYY-MM-DD-<slug>/`
     directory, referenced from the `README.md`.
 
-6.  Prepend a row to [audit index](./audits/INDEX.md).
+6.  Prepend a row to the [audit index](./audits/INDEX.md).
 
 7.  Commit your changes and open a pull request. For both the commit message
     and the PR title, use the format `audit: <description>`, where
@@ -58,7 +58,7 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ## Rules
 
-- Audit reports MUST be written in American English.
+- All artifacts MUST be written in American English.
 
 - Every report MUST be dated.
 
@@ -69,10 +69,13 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
   specified, eg. `<team>/<repo>@<commit-hash>`.
 
 - An audit report MUST be scoped exclusively to the as-built static structure of
-  the system's code and data. Security and privacy findings – eg. injection points,
-  broken auth boundaries, unsafe secrets handling — are out-of-scope; these
-  concerns belong in the [risk register](https://github.com/kieranpotts/risks).
-  Also out-of-scope is catching drift from the intended architecture; design
+  the system's code and data.
+
+- Security and privacy findings – eg. injection points, broken auth boundaries,
+  unsafe secrets handling — MUST NOT be included; these concerns belong instead
+  in the [risk register](https://github.com/kieranpotts/risks).
+
+- Also out-of-scope is catching drift from the intended architecture. Design
   docs SHOULD NOT be reviewed as part of an architecture audit, only the
   source code and data structures in the as-built system itself.
 
