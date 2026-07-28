@@ -23,7 +23,7 @@ environment, if possible. If you're uncertain about the input requirements,
 prompt the user for clarification.
 
 - Scope — REQUIRED.
-  A description of the target software system, subsystem, servic, or other
+  A description of the target software system, subsystem, service, or other
   component that is the subject of the architectural review. Preferably
   scoped to a specific version, release, commit, or other revision.
 
