@@ -10,7 +10,7 @@ system's structural integrity.
 An audit evaluates a system's architecture on its own terms, without
 cross-referencing the _intended_ architecture captured in the
 [design docs](https://github.com/kieranpotts/design). Auditors may have
-no prior knowledge of the trade-offs already considered. The purpose is to
+no prior knowledge of the trade-offs already considered. The objective is to
 surface genuinely fresh insights.
 
 An audit report captures prioritized findings on the structural integrity of
@@ -26,6 +26,11 @@ An architectural audit is evaluation only. It is not the role of audit reports
 to suggest fixes or alternative designs. And security and privacy review is
 out-of-scope — that is the subject of the
 [risk register](https://github.com/kieranpotts/risks).
+
+> [!NOTE]
+> See also [TS-3](https://github.com/kieranpotts/standards/tree/latest/dev/src/003),
+> a technical standard for maintaining design documentation. This repository is
+> a reference implementation for part of that standard.
 
 ## Ecosystem
 
