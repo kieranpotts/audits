@@ -13,12 +13,17 @@ Audits may be run by anyone with write access to this repository.
 See also [TS-3](https://github.com/kieranpotts/standards/tree/latest/dev/src/003)
 for the technical standard that underpins this process.
 
-> [!NOTE]
-> The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
-> SHOULD NOT, OPTIONAL, and MAY herein are to be interpreted as described
-> in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+****
+The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
+SHOULD NOT, OPTIONAL, and MAY herein are to be interpreted as described
+in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+****
 
 ## Workflow
+
+> [!TIP]
+> [Agent skills](./.agents/skills/) are available to help automate some steps in
+> this workflow.
 
 1.  Decide the target codebase(s) to audit – the repositories, services, or
     filesystem directories.
