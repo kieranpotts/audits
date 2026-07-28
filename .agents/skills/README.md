@@ -11,7 +11,7 @@ Skills available to agents in this repository are:
   the audit report in the `main` trunk.
 
 > [!NOTE]
-> This scaffold skill merely prepares a new, blank audit report. After this
+> The scaffold skill merely prepares a new, blank audit report. After this
 > step, the user will do the architecture audit and write up the report. For
 > help with the actual architecture audit itself, see the
 > [**audit**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/audit)
