@@ -131,7 +131,3 @@ request opened with `main` as the target branch.
 
 - A draft pull request is open with the title
   `audit: <short lowercase description>`.
-
-## References
-
-- [`AGENTS.md`](../../../AGENTS.md): The full audit workflow and rules.

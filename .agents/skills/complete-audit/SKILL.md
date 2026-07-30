@@ -98,7 +98,3 @@ upstream "origin" repository.
   audit report.
 
 - The `audit/*` branch no longer exists in the upstream repository.
-
-## References
-
-- [`AGENTS.md`](../../../AGENTS.md): The full audit workflow and rules.
