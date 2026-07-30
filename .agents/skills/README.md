@@ -17,6 +17,20 @@ Skills available to agents in this repository are:
 > [**audit**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/audit)
 > skill in my global skills collection.
 
+## Conventions
+
+Two structural conventions recur across `SKILL.md` files in this ecosystem:
+
+- **"Transition gates" sections** (`## Transition gates: <FROM> → <TO>`)
+  document the conditions that MUST hold before a document moves between
+  lifecycle states. This repository's audit reports are immutable snapshots
+  with no lifecycle state machine, so this convention does not apply here —
+  see the specs, rfc, and plans repositories for examples.
+
+- **"References" closing sections** link out to related documentation the
+  skill depends on or is subordinate to, such as this repository's own
+  [`AGENTS.md`](../../AGENTS.md).
+
 ## Compatibility
 
 Agent harnesses are converging on the `./.agents/skills/` path for dynamic
