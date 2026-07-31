@@ -1,9 +1,10 @@
 ---
 name: complete-audit
 description: >-
-  Land an audit in the `main` trunk. Use this skill when the user says
-  something like "complete this audit", "this is completed", "merge the audit",
-  "complete the most recent audit", or "complete #<pr-number>".
+  Land an audit report in the `main` trunk. Use this skill when the user
+  says something like "complete this audit", "this audit is complete",
+  "merge the audit", "complete the most recent audit", or
+  "complete #<pr-number>".
 license: MIT
 metadata:
   interactive: yes
@@ -12,28 +13,40 @@ metadata:
 
 # Complete audit
 
-Land an audit in the `main` trunk. Merge its pull request once review is settled.
+Land an architecture audit report in the `main` trunk.
 
-## Input
+## Parameters
 
-Determine the following information from the surrounding context and environment,
-if possible.
+Determine the following information from the surrounding context and
+environment, if possible. If you're uncertain about the required parameters,
+prompt the user for clarification.
 
-- Target — REQUIRED. Infer the target audit report from the checked-out branch
-  (`audit/<slug>`). If on `main`, try to determine the target from information
-  in the context or environment. Ask the user to specify the target if you
-  cannot discover it for yourself. Use the following command to present the
-  user with a list of open audit pull requests, from which they can choose one
-  to complete:
+- **Target — REQUIRED.** Infer the target audit report from the checked-out
+  branch (`audit/<slug>`). If on `main`, try to determine the target from
+  information in the context or environment. If you cannot discover the target
+  for yourself, use the following command to present the user with a list of
+  open pull requests, from which they can choose one to complete:
 
   ```sh
   gh pr list --search "audit:" --json number,title,headRefName
   ```
 
-## Output
+## Success criteria
 
-A merged pull request, with the source `audit/*` branch deleted from the
-upstream "origin" repository.
+You will achieve the following outcomes:
+
+<!-- A merged pull request, with the source `audit/*` branch deleted from the
+upstream "origin" repository. -->
+
+- The PR is merged.
+
+- A single new squash commit exists on `main`. The message format is
+  `audit: <short lowercase description>`.
+
+- The `audits/INDEX.md` file on `main` includes a new row for the newly-landed
+  audit report.
+
+- The `audit/*` branch no longer exists in the upstream repository.
 
 ## Instructions
 
@@ -86,15 +99,3 @@ upstream "origin" repository.
 
 - You MUST NOT delete the downstream `audit/*` branch. Leave that for the user
   to do, if they so choose.
-
-## Success criteria
-
-- The PR is merged.
-
-- A single new squash commit exists on `main`. The message format is
-  `audit: <short lowercase description>`.
-
-- The `audits/INDEX.md` file on `main` includes a new row for the newly-landed
-  audit report.
-
-- The `audit/*` branch no longer exists in the upstream repository.

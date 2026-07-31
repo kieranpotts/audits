@@ -1,10 +1,11 @@
 ---
 name: scaffold-audit
 description: >-
-  Scaffold an architecture audit. Use this skill when the user wants to start a
-  new audit, or says something like "scaffold an audit", "draft a new audit
-  report", "prepare a new audit report", "start an architectural review", or
-  "prepare an audit of <component or service name>".
+  Scaffold an architecture audit report. Use this skill when the user wants to
+  start a new audit, or says something like "scaffold an audit",
+  "draft a new audit report", "prepare a new audit report",
+  "start an architectural review", or
+  "prepare an audit of <component-or-service>".
 license: MIT
 metadata:
   interactive: yes
@@ -18,29 +19,41 @@ fill out the report headers and initial sections, and open a draft PR.
 
 Do not evaluate the architecture or help the user to write the findings.
 
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
-environment, if possible. If you're uncertain about the input requirements,
+environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
-- Scope — REQUIRED. A description of the target software system, subsystem,
+- **Scope — REQUIRED.** A description of the target software system, subsystem,
   service, or other component that is the subject of the architectural review.
   Preferably scoped to a specific version, release, commit, or other revision.
 
-- Auditors — OPTIONAL. Assume the current team or organization as the auditors.
+- **Auditors — OPTIONAL.** Assume the current team or organization as the auditors.
   Can this be discovered from the target project's `AGENTS.md` file or other
   sources?
 
-- Audit date — OPTIONAL. Assume it's happening today. Use the Unix command
+- **Audit date — OPTIONAL.** Assume it's happening today. Use the Unix command
   `date` to determine the current date.
 
-## Output
+## Success criteria
 
-You will write a new file to `audits/YYYY-MM-DD-<slug>/README.md`,
+You will achieve the following outcomes:
+
+<!-- You will write a new file to `audits/YYYY-MM-DD-<slug>/README.md`,
 based on the template at `audits/TEMPLATE.md`, committed to a branch named
 `audit/<slug>`, pushed to the upstream "origin" repository, and a draft pull
-request opened with `main` as the target branch.
+request opened with `main` as the target branch. -->
+
+- Branch `audit/<slug>` exists and is checked out.
+
+- `audits/YYYY-MM-DD-<slug>/README.md` exists.It follows the structure of
+  `audit/TEMPLATE.md`. The header section is filled in.
+
+- `audits/INDEX.md` has a new row at the top of the list.
+
+- A draft pull request is open with the title
+  `audit: <short lowercase description>`.
 
 ## Instructions
 
@@ -119,15 +132,3 @@ request opened with `main` as the target branch.
 - You MUST NOT evaluate the architecture or write findings. This skill only
   scaffolds the report and its PR. Evaluating the target codebase and writing up
   the findings, themes, and priorities is out-of-scope.
-
-## Success criteria
-
-- Branch `audit/<slug>` exists and is checked out.
-
-- `audits/YYYY-MM-DD-<slug>/README.md` exists.It follows the structure of
-  `audit/TEMPLATE.md`. The header section is filled in.
-
-- `audits/INDEX.md` has a new row at the top of the list.
-
-- A draft pull request is open with the title
-  `audit: <short lowercase description>`.
