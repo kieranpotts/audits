@@ -1,46 +1,40 @@
-# Agent skills
+# Agent skills for managing architecture audit reports
 
-Skills available to agents in this repository are:
+The skills available to agents in this project are:
 
-- **[Scaffold audit](./scaffold-audit/):**
+- **[scaffold-audit](./scaffold-audit/):** \
   Cuts an `audit/<slug>` branch from `main`, fills in some initial details,
   and opens a draft pull request.
 
-- **[Complete audit](./complete-audit/):**
+- **[complete-audit](./complete-audit/):** \
   After the reviews have been completed, this skill can be used to land
   the audit report in the `main` trunk.
 
-> [!NOTE]
-> The scaffold skill merely prepares a new, blank audit report. After this
-> step, the user will do the architecture audit and write up the report. For
-> help with the actual architecture audit itself, see the
-> [**audit**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/audit)
-> skill in my global skills collection.
+The **scaffold-audit** skill prepares a new, blank audit report. After this step,
+the user will do the architecture audit and write up the report. When the report
+is done, the **complete-audit** skill can be used to get an agent to check it
+over and land the report in the `main` trunk.
 
-## Conventions
+```mermaid
+flowchart LR
+  scaffold["🤖<br/><b>scaffold-audit</b>"]:::agentic
+  write["🧑<br/>write report"]:::anthropic
+  complete["🤖<br/><b>complete-audit</b>"]:::agentic
 
-Two structural conventions recur across `SKILL.md` files in this ecosystem:
+  scaffold ==> write
+  write ==> complete
 
-- **"Transition gates" sections** (`## Transition gates: <FROM> → <TO>`)
-  document the conditions that MUST hold before a document moves between
-  lifecycle states. This repository's audit reports are immutable snapshots
-  with no lifecycle state machine, so this convention does not apply here —
-  see the specs, rfc, and plans repositories for examples.
+  classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px
+  classDef scripted fill:#e2e3e5,stroke:#4b5157,color:#383d41,stroke-width:2px
+  classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
+```
 
-- **"References" closing sections** link out to related documentation the
-  skill depends on or is subordinate to, such as this repository's own
-  [`AGENTS.md`](../../AGENTS.md).
+For help with the actual architecture audit itself, or for help writing a report,
+see the [**audit**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/audit)
+skill in my global skills collection.
 
 ## Compatibility
 
-Agent harnesses are converging on the `./.agents/skills/` path for dynamic
-retrieval of project-specific skills. This is compatible with the Agent Skills
-convention — see https://agentskills.io/.
-
-As of May 2026, OpenAI Codex, GitHub Copilot, Gemini CLI, Google Antigravity,
-OpenCode, and Pi will auto-discover these skills, but Claude Code and Cursor
-will not.
-
-You will require workarounds for incompatible harnesses. For Claude Code, you
-can simply symlink this directory from `.claude/skills/`. Cursor requires more
-effort to transpile these skills into its native "rules" format.
+These skills are compatible with the [Agent Skills](https://agentskills.io/)
+convention. Most agent harnesses support this convention natively, but
+workarounds may be required for harnesses that do not.
