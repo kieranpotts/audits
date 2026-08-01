@@ -24,6 +24,12 @@ Or specify the target PR:
 
 > Review #42
 
+## Recommended models
+
+A fast or mid-tier model is enough. The only judgment call is a light
+completeness check — header metadata and at least one finding — not a
+quality assessment.
+
 ## Notes
 
 This is a light check, not a completeness gate — findings, themes, and

@@ -28,3 +28,8 @@ Or specify the target PR:
 > Complete #42
 
 > Complete the most recent audit.
+
+## Recommended models
+
+A fast, inexpensive model is enough. Every step here is a mechanical
+check-and-merge, with no judgment calls.

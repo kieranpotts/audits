@@ -1,8 +1,10 @@
-# Agent skills for managing architecture audit reports
+# Agent skills
 
-The skills available to agents in this project are:
+The following skills are available to support the management of architecture
+audit reports via AI agents.
 
 - **[draft-audit](./draft-audit/):** \
+  Scaffolds a new, blank audit report.
   Cuts an `audit/<slug>` branch from `main`, prepares a fresh report from the
   template, and opens a pull request in a draft state.
 
@@ -13,16 +15,12 @@ The skills available to agents in this project are:
 - **[complete-audit](./complete-audit/):** \
   Checks the audit report and merges it into the `main` trunk.
 
-The **draft-audit** skill prepares a new, blank audit report. After this step,
-the user will do the actual architecture audit and write up the report. Once
-there's enough to review, **review-audit** takes the pull request out of
-draft. When done, the **complete-audit** skill can be used to get an agent to
-check it over and land the report in the `main` trunk.
+## Workflow
 
 ```mermaid
 flowchart LR
   draft["🤖<br/><b>draft-audit</b>"]:::agentic
-  write["🧑<br/>write report"]:::anthropic
+  write["🧑<br/>audit architecture,<br/>write report"]:::anthropic
   review["🤖<br/><b>review-audit</b>"]:::agentic
   complete["🤖<br/><b>complete-audit</b>"]:::agentic
 
@@ -35,10 +33,11 @@ flowchart LR
   classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
 ```
 
-These skills handle process, not substance: how an audit report is drafted,
-reviewed, and landed in `main`. For the audit work itself — evaluating the
-architecture and writing up the findings — use the
-[**audit**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/audit)
+The agent skills in this project are focused on the mechanics of managing the
+lifecycle of architecture audit reports.
+For help doing to the audit itself — evaluating the as-built system architecture
+and writing up the findings in a new audit report — you may instruct agents to use
+the [**audit**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/audit)
 skill in my global skills collection.
 
 ## Compatibility

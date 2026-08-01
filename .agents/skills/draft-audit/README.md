@@ -25,6 +25,12 @@ Prepares a new audit report and opens a draft PR.
 
 > Prepare an audit of the payment service.
 
+## Recommended models
+
+A fast, inexpensive model is enough. This skill scaffolds files from a
+template and fills in metadata — there's no judgment call worth paying for
+deeper reasoning.
+
 ## Notes
 
 Do the audit and write up the findings yourself. Once there's enough to
