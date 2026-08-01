@@ -6,7 +6,7 @@ description: >-
   something like "review this audit", "this audit is ready for review",
   "take the audit out of draft", "mark the audit ready for review", or
   "review audit".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing

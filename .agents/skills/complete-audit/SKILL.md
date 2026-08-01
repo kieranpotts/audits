@@ -5,7 +5,7 @@ description: >-
   says something like "complete this audit", "this audit is complete",
   "merge the audit", "complete the most recent audit", or
   "complete #<pr-number>".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing

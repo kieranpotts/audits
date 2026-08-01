@@ -6,7 +6,7 @@ description: >-
   "draft a new audit report", "prepare a new audit report",
   "start an architectural review", or
   "prepare an audit of <component-or-service>".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing
