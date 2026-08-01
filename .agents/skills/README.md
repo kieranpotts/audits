@@ -3,17 +3,16 @@
 The skills available to agents in this project are:
 
 - **[scaffold-audit](./scaffold-audit/):** \
-  Cuts an `audit/<slug>` branch from `main`, fills in some initial details,
-  and opens a draft pull request.
+  Cuts an `audit/<slug>` branch from `main`, prepares a fresh report from the
+  template, and opens a pull request in a draft state.
 
 - **[complete-audit](./complete-audit/):** \
-  After the reviews have been completed, this skill can be used to land
-  the audit report in the `main` trunk.
+  Checks the audit report and merges it into the `main` trunk.
 
 The **scaffold-audit** skill prepares a new, blank audit report. After this step,
-the user will do the architecture audit and write up the report. When the report
-is done, the **complete-audit** skill can be used to get an agent to check it
-over and land the report in the `main` trunk.
+the user will do the actual architecture audit and write up the report. When done,
+the **complete-audit** skill can be used to get an agent to check it over and
+land the report in the `main` trunk.
 
 ```mermaid
 flowchart LR
@@ -29,8 +28,10 @@ flowchart LR
   classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
 ```
 
-For help with the actual architecture audit itself, or for help writing a report,
-see the [**audit**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/audit)
+These skills handle process, not substance: how an audit report is scaffolded,
+reviewed, and landed in `main`. For the audit work itself — evaluating the
+architecture and writing up the findings — use the
+[**audit**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/audit)
 skill in my global skills collection.
 
 ## Compatibility
