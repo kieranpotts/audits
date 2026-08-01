@@ -1,6 +1,6 @@
 # Review audit
 
-Checks the report has enough substance for review, and takes the pull
+Checks an audit report has enough substance for review, and takes its pull
 request out of draft.
 
 ## How to invoke

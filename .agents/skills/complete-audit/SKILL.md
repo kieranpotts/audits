@@ -13,7 +13,7 @@ metadata:
 
 # Complete audit
 
-Land an architecture audit report in the `main` trunk.
+Check an audit report and merge it into the `main` trunk.
 
 ## Parameters
 
@@ -22,10 +22,8 @@ environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
 - **Target — REQUIRED.** Infer the target audit report from the checked-out
-  branch (`audit/<slug>`). If on `main`, try to determine the target from
-  information in the context or environment. If you cannot discover the target
-  for yourself, use the following command to present the user with a list of
-  open pull requests, from which they can choose one to complete:
+  branch (`audit/<slug>`). If on `main`, list open non-draft pull requests
+  matching `audit:` and ask the user to choose one.
 
   ```sh
   gh pr list --search "audit:" --json number,title,headRefName
@@ -34,9 +32,6 @@ prompt the user for clarification.
 ## Success criteria
 
 You will achieve the following outcomes:
-
-<!-- A merged pull request, with the source `audit/*` branch deleted from the
-upstream "origin" repository. -->
 
 - The PR is merged.
 
@@ -65,7 +60,8 @@ upstream "origin" repository. -->
       }' -F owner=<owner> -F name=<repo> -F number=<number>
     ```
 
-    Any `isResolved: false` node means there's outstanding feedback.
+    Any `isResolved: false` node means there's outstanding feedback. Stop and
+    warn the user.
 
 2.  Confirm the PR is not a draft.
 
@@ -73,20 +69,22 @@ upstream "origin" repository. -->
     gh pr view <number> --json isDraft
     ```
 
-    If it is still a draft, stop and direct the user to
-    [`/review-audit`](../review-audit/SKILL.md) first.
+    If it is still a draft, stop and warn the user.
 
 3.  Confirm with the user that the PR is ready to be merged.
 
+    Do not proceed until they've given explicit permission to proceed further
+    than this step.
+
 4.  Squash-merge the PR with the message `audit: <short lowercase description>`,
-    and delete the source branch on the upstream repository:
+    and delete the source branch in the upstream repository.
 
     ```sh
     gh pr merge <number> --squash --subject "audit: <short lowercase description>" --delete-branch
     ```
 
 5.  In case the branch was not automatically deleted from the upstream
-    repository, delete it directly:
+    repository, delete it directly.
 
     ```sh
     git push origin --delete audit/<slug>
@@ -98,17 +96,15 @@ upstream "origin" repository. -->
 
 - You MUST NOT merge a draft PR.
 
-  Run [`/review-audit`](../review-audit/SKILL.md) first.
-
 - You MUST NOT merge over unresolved review comments without explicit
-  instruction.
+  instruction from the user.
 
-- You MUST NOT merge without explicit instruction from the user.
+- You MUST NOT merge without explicit confirmation from the user.
 
 - You MUST use the squash-merge strategy.
 
 - You SHOULD double-check that the upstream `audit/*`  branch is deleted
   afterward.
 
-- You MUST NOT delete the downstream `audit/*` branch. Leave that for the user
-  to do, if they so choose.
+- You SHOULD NOT delete the downstream `audit/*` branch. Leave that for the user
+  to clean up.

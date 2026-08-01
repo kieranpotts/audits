@@ -1,6 +1,6 @@
 # Complete audit
 
-Checks the audit report and merges it into the `main` trunk.
+Checks an audit report and merges it into the `main` trunk.
 
 ## How to invoke
 

@@ -9,11 +9,11 @@ audit reports via AI agents.
   template, and opens a pull request in a draft state.
 
 - **[review-audit](./review-audit/):** \
-  Checks the report has enough substance for review, and takes the pull
+  Checks an audit report has enough substance for review, and takes its pull
   request out of draft.
 
 - **[complete-audit](./complete-audit/):** \
-  Checks the audit report and merges it into the `main` trunk.
+  Checks an audit report and merges it into the `main` trunk.
 
 ## Workflow
 
