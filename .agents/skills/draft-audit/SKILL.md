@@ -25,8 +25,9 @@ environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
 - **Scope — REQUIRED.** A description of the target software system, subsystem,
-  service, or other component that is the subject of the architectural review.
-  Preferably scoped to a specific version or commit.
+  service, or other component that is the subject of the architecture audit.
+  This SHOULD be scoped to a version or commit — assume the `HEAD` commit if
+  you're not sure.
 
 - **Auditors — OPTIONAL.** Assume the current team or organization are the
   auditors. Can this be discovered from the target project's `AGENTS.md` file
@@ -42,16 +43,18 @@ You will achieve the following outcomes:
 - Branch `audit/<slug>` exists and is checked out.
 
 - `audits/YYYY-MM-DD-<slug>/README.md` exists. It follows the structure of
-  `audit/TEMPLATE.md`. The header section is filled in as best you can.
+  `audits/TEMPLATE.md`. The header section is filled in as best you can.
 
 - `audits/INDEX.md` has a new row at the top of the list.
 
 - A draft pull request is open with the title
   `audit: <short lowercase description>`.
 
+- The report's `Audit PR` header field names that pull request.
+
 ## Instructions
 
-1.  From the scope, establish a short description of the audit. — written
+1.  From the scope, establish a short description of the audit — written
     in the present tense, full lowercase, and NOT terminated by a period.
 
 2.  From the description, establish a hyphen-delimited URL path slug. For
@@ -66,7 +69,7 @@ You will achieve the following outcomes:
     git checkout -b audit/<slug>
     ```
 
-4.  Copy `audits/TEMPLATE.md` to`audits/YYYY-MM-DD-<slug>/README.md`.
+4.  Copy `audits/TEMPLATE.md` to `audits/YYYY-MM-DD-<slug>/README.md`.
 
     YYYY-MM-DD is the current date.
 
@@ -110,7 +113,7 @@ You will achieve the following outcomes:
 
     ```sh
     git add audits/YYYY-MM-DD-<slug>/README.md
-    git commit -m "chore: add pr reference number"
+    git commit -m "chore: add pr number to architectural audit report"
     git push -u origin audit/<slug>
     ```
 
@@ -132,6 +135,12 @@ You will achieve the following outcomes:
   Staging only the report directory leaves the row uncommitted in the working
   tree, so it never lands on `main` — while the completion gate downstream
   asserts that it did.
+
+- You MUST record the pull request number in the report's `Audit PR` header
+  field.
+
+  An audit report that does not name its own pull request cannot be traced back
+  to the discussion that shaped it.
 
 - You MUST NOT evaluate the architecture or write findings. This skill only
   drafts the report and its PR. Evaluating the target codebase and writing up
