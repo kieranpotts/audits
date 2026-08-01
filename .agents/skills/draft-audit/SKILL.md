@@ -84,8 +84,11 @@ You will achieve the following outcomes:
 
 7.  Commit and push your changes.
 
+    Stage the index alongside the report — step 6 modified
+    `audits/INDEX.md`, and an unstaged index row never reaches `main`:
+
     ```sh
-    git add audits/YYYY-MM-DD-<slug>/README.md
+    git add audits/YYYY-MM-DD-<slug>/README.md audits/INDEX.md
     git commit -m "audit: <description>"
     git push -u origin audit/<slug>
     ```
@@ -122,6 +125,13 @@ You will achieve the following outcomes:
 - You MUST branch from `main`, not from any other branch. Audits are always cut
   from `main`. If local `main` is behind the remote, pull first. Use the rebase
   strategy to maintain a linear history on the `main` trunk.
+
+- You MUST stage every file you changed, including `audits/INDEX.md`.
+
+  The index row added in step 6 lives in a different file from the report.
+  Staging only the report directory leaves the row uncommitted in the working
+  tree, so it never lands on `main` — while the completion gate downstream
+  asserts that it did.
 
 - You MUST NOT evaluate the architecture or write findings. This skill only
   drafts the report and its PR. Evaluating the target codebase and writing up
