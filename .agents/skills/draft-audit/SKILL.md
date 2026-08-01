@@ -14,10 +14,9 @@ metadata:
 
 # Draft audit
 
-Draft an architecture audit. Create the branch, ask a few questions to
-fill out the report headers and initial sections, and open a draft PR.
-
-Do not evaluate the architecture or help the user to write the findings.
+Scaffold a new, blank audit report, ready for the user to fill in. Do not
+evaluate the architecture, or help the user to write the findings into the
+report.
 
 ## Parameters
 
@@ -27,11 +26,11 @@ prompt the user for clarification.
 
 - **Scope — REQUIRED.** A description of the target software system, subsystem,
   service, or other component that is the subject of the architectural review.
-  Preferably scoped to a specific version, release, commit, or other revision.
+  Preferably scoped to a specific version or commit.
 
-- **Auditors — OPTIONAL.** Assume the current team or organization as the auditors.
-  Can this be discovered from the target project's `AGENTS.md` file or other
-  sources?
+- **Auditors — OPTIONAL.** Assume the current team or organization are the
+  auditors. Can this be discovered from the target project's `AGENTS.md` file
+  or other sources?
 
 - **Audit date — OPTIONAL.** Assume it's happening today. Use the Unix command
   `date` to determine the current date.
@@ -40,15 +39,10 @@ prompt the user for clarification.
 
 You will achieve the following outcomes:
 
-<!-- You will write a new file to `audits/YYYY-MM-DD-<slug>/README.md`,
-based on the template at `audits/TEMPLATE.md`, committed to a branch named
-`audit/<slug>`, pushed to the upstream "origin" repository, and a draft pull
-request opened with `main` as the target branch. -->
-
 - Branch `audit/<slug>` exists and is checked out.
 
-- `audits/YYYY-MM-DD-<slug>/README.md` exists.It follows the structure of
-  `audit/TEMPLATE.md`. The header section is filled in.
+- `audits/YYYY-MM-DD-<slug>/README.md` exists. It follows the structure of
+  `audit/TEMPLATE.md`. The header section is filled in as best you can.
 
 - `audits/INDEX.md` has a new row at the top of the list.
 
@@ -57,7 +51,7 @@ request opened with `main` as the target branch. -->
 
 ## Instructions
 
-1.  From the scope of the audit, establish a short description of it — written
+1.  From the scope, establish a short description of the audit. — written
     in the present tense, full lowercase, and NOT terminated by a period.
 
 2.  From the description, establish a hyphen-delimited URL path slug. For
