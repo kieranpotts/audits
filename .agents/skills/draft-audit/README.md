@@ -1,17 +1,9 @@
 # Draft audit
 
-Prepares a new audit report and opens a draft PR.
+Scaffolds a new, blank audit report.
 
-## What it does
-
-- Creates an `audit/<slug>` branch from `main`.
-
-- Asks you a few questions and fills out the headers and some initial sections
-  of the audit report.
-
-- Writes the draft report to `audits/YYYY-MM-DD-<slug>/README.md`.
-
-- Commits, pushes, and opens a draft pull request titled `audit: <description>`.
+Cuts an `audit/<slug>` branch from `main`, prepares a fresh report from the
+template, and opens a pull request in a draft state.
 
 ## How to invoke
 
@@ -27,12 +19,5 @@ Prepares a new audit report and opens a draft PR.
 
 ## Recommended models
 
-A fast, inexpensive model is enough. This skill scaffolds files from a
-template and fills in metadata — there's no judgment call worth paying for
-deeper reasoning.
-
-## Notes
-
-Do the audit and write up the findings yourself. Once there's enough to
-review, use [`/review-audit`](../review-audit/README.md) to take the PR out
-of draft, then [`/complete-audit`](../complete-audit/README.md) to land it.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

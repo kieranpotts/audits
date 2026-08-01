@@ -1,17 +1,6 @@
 # Complete audit
 
-Lands an audit in the `main` trunk.
-
-## What it does
-
-- Confirms review feedback on the pull request has been addressed.
-
-- Confirms the pull request is not still a draft (see
-  [`/review-audit`](../review-audit/README.md)).
-
-- Squash-merges the pull request with an `audit: <description>` message.
-
-- Deletes the `audit/*` branch.
+Checks the audit report and merges it into the `main` trunk.
 
 ## How to invoke
 
@@ -31,5 +20,5 @@ Or specify the target PR:
 
 ## Recommended models
 
-A fast, inexpensive model is enough. Every step here is a mechanical
-check-and-merge, with no judgment calls.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.
