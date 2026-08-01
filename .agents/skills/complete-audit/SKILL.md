@@ -67,25 +67,38 @@ upstream "origin" repository. -->
 
     Any `isResolved: false` node means there's outstanding feedback.
 
-2.  Confirm with the user that the PR is ready to be merged.
+2.  Confirm the PR is not a draft.
 
-3.  Squash-merge the PR with the message `audit: <short lowercase description>`,
+    ```sh
+    gh pr view <number> --json isDraft
+    ```
+
+    If it is still a draft, stop and direct the user to
+    [`/review-audit`](../review-audit/SKILL.md) first.
+
+3.  Confirm with the user that the PR is ready to be merged.
+
+4.  Squash-merge the PR with the message `audit: <short lowercase description>`,
     and delete the source branch on the upstream repository:
 
     ```sh
     gh pr merge <number> --squash --subject "audit: <short lowercase description>" --delete-branch
     ```
 
-4.  In case the branch was not automatically deleted from the upstream
+5.  In case the branch was not automatically deleted from the upstream
     repository, delete it directly:
 
     ```sh
     git push origin --delete audit/<slug>
     ```
 
-5.  Output a summary of your actions.
+6.  Output a summary of your actions.
 
 ## Rules
+
+- You MUST NOT merge a draft PR.
+
+  Run [`/review-audit`](../review-audit/SKILL.md) first.
 
 - You MUST NOT merge over unresolved review comments without explicit
   instruction.

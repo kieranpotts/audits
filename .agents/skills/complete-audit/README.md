@@ -6,6 +6,9 @@ Lands an audit in the `main` trunk.
 
 - Confirms review feedback on the pull request has been addressed.
 
+- Confirms the pull request is not still a draft (see
+  [`/review-audit`](../review-audit/README.md)).
+
 - Squash-merges the pull request with an `audit: <description>` message.
 
 - Deletes the `audit/*` branch.

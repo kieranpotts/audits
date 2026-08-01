@@ -43,16 +43,19 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 6.  Prepend a row to the [audit index](./audits/INDEX.md).
 
-7.  Commit your changes and open a pull request. For both the commit message
-    and the PR title, use the format `audit: <description>`, where
-    `<description>` is a short prose title, written full lowercase, eg.
+7.  Commit your changes and open a pull request as a draft. For both the
+    commit message and the PR title, use the format `audit: <description>`,
+    where `<description>` is a short prose title, written full lowercase, eg.
     `audit: payment service architecture review`.
 
-8.  Gather feedback via the normal review process.
+8.  When the report is ready for review, transition the pull request out of
+    its draft state.
 
-9.  Resolve PR comments.
+9.  Gather feedback via the normal review process.
 
-10. Once the review is complete, squash-merge the pull request, with the
+10. Resolve PR comments.
+
+11. Once the review is complete, squash-merge the pull request, with the
     commit message taking the form `audit: <description>`. Delete the
     `audit/*` branch.
 

@@ -24,3 +24,9 @@ Prepares a new audit report and opens a draft PR.
 > Start an architectural review.
 
 > Prepare an audit of the payment service.
+
+## Notes
+
+Do the audit and write up the findings yourself. Once there's enough to
+review, use [`/review-audit`](../review-audit/README.md) to take the PR out
+of draft, then [`/complete-audit`](../complete-audit/README.md) to land it.

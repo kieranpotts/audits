@@ -36,8 +36,10 @@ See [CONTRIBUTING.md > Workflow](./CONTRIBUTING.md#workflow) for the
 step-by-step process for running an audit and landing its report.
 
 It is RECOMMENDED to follow the [draft audit](./.agents/skills/draft-audit/)
-skill to prepare a new report, and the [complete audit](./.agents/skills/complete-audit/)
-skill to land it in the `main` trunk.
+skill to prepare a new report, the [review audit](./.agents/skills/review-audit/)
+skill to take it out of draft, and the
+[complete audit](./.agents/skills/complete-audit/) skill to land it in the
+`main` trunk.
 
 ## Rules
 
