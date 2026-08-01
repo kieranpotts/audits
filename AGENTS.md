@@ -35,7 +35,7 @@ and immutable once merged into `main`.
 See [CONTRIBUTING.md > Workflow](./CONTRIBUTING.md#workflow) for the
 step-by-step process for running an audit and landing its report.
 
-It is RECOMMENDED to follow the [scaffold audit](./.agents/skills/scaffold-audit/)
+It is RECOMMENDED to follow the [draft audit](./.agents/skills/draft-audit/)
 skill to prepare a new report, and the [complete audit](./.agents/skills/complete-audit/)
 skill to land it in the `main` trunk.
 

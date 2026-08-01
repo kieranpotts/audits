@@ -1,4 +1,4 @@
-# Scaffold audit
+# Draft audit
 
 Prepares a new audit report and opens a draft PR.
 
@@ -15,7 +15,7 @@ Prepares a new audit report and opens a draft PR.
 
 ## How to invoke
 
-> Scaffold an audit.
+> Draft an audit.
 
 > Draft a new audit report.
 

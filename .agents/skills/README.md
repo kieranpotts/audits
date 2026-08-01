@@ -2,25 +2,25 @@
 
 The skills available to agents in this project are:
 
-- **[scaffold-audit](./scaffold-audit/):** \
+- **[draft-audit](./draft-audit/):** \
   Cuts an `audit/<slug>` branch from `main`, prepares a fresh report from the
   template, and opens a pull request in a draft state.
 
 - **[complete-audit](./complete-audit/):** \
   Checks the audit report and merges it into the `main` trunk.
 
-The **scaffold-audit** skill prepares a new, blank audit report. After this step,
+The **draft-audit** skill prepares a new, blank audit report. After this step,
 the user will do the actual architecture audit and write up the report. When done,
 the **complete-audit** skill can be used to get an agent to check it over and
 land the report in the `main` trunk.
 
 ```mermaid
 flowchart LR
-  scaffold["🤖<br/><b>scaffold-audit</b>"]:::agentic
+  draft["🤖<br/><b>draft-audit</b>"]:::agentic
   write["🧑<br/>write report"]:::anthropic
   complete["🤖<br/><b>complete-audit</b>"]:::agentic
 
-  scaffold ==> write
+  draft ==> write
   write ==> complete
 
   classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px
@@ -28,7 +28,7 @@ flowchart LR
   classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
 ```
 
-These skills handle process, not substance: how an audit report is scaffolded,
+These skills handle process, not substance: how an audit report is drafted,
 reviewed, and landed in `main`. For the audit work itself — evaluating the
 architecture and writing up the findings — use the
 [**audit**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/audit)

@@ -1,8 +1,8 @@
 ---
-name: scaffold-audit
+name: draft-audit
 description: >-
-  Scaffold an architecture audit report. Use this skill when the user wants to
-  start a new audit, or says something like "scaffold an audit",
+  Draft an architecture audit report. Use this skill when the user wants to
+  start a new audit, or says something like "draft an audit",
   "draft a new audit report", "prepare a new audit report",
   "start an architectural review", or
   "prepare an audit of <component-or-service>".
@@ -12,9 +12,9 @@ metadata:
   preferred_model: prose-writing
 ---
 
-# Scaffold audit
+# Draft audit
 
-Scaffold an architecture audit. Create the branch, ask a few questions to
+Draft an architecture audit. Create the branch, ask a few questions to
 fill out the report headers and initial sections, and open a draft PR.
 
 Do not evaluate the architecture or help the user to write the findings.
@@ -122,7 +122,7 @@ request opened with `main` as the target branch. -->
 ## Rules
 
 - There MUST be exactly one new audit report per branch and per pull request.
-  Do not bundle multiple target codebases into one PR. Scaffold a separate
+  Do not bundle multiple target codebases into one PR. Draft a separate
   audit for each.
 
 - You MUST branch from `main`, not from any other branch. Audits are always cut
@@ -130,5 +130,5 @@ request opened with `main` as the target branch. -->
   strategy to maintain a linear history on the `main` trunk.
 
 - You MUST NOT evaluate the architecture or write findings. This skill only
-  scaffolds the report and its PR. Evaluating the target codebase and writing up
+  drafts the report and its PR. Evaluating the target codebase and writing up
   the findings, themes, and priorities is out-of-scope.
