@@ -35,15 +35,15 @@ prompt the user for clarification.
 
 You will achieve the following outcomes:
 
-- The PR is no longer a draft (`isDraft: false`).
+- The PR MUST no longer be a draft (`isDraft: false`).
 
-- The header metadata (auditors, audit date, scope, PR number) is filled in.
+- The header metadata (auditors, audit date, scope, PR number) MUST be filled in.
 
-- At least one finding is documented.
+- At least one finding MUST be documented.
 
-- Each finding has a type, priority, and location.
+- Each finding MUST have a type, priority, and location.
 
-- No literal template placeholder text remains in the audit report document.
+- The audit report MUST NOT contain any literal template placeholder text.
 
 ## Instructions
 

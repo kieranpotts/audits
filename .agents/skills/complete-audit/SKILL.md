@@ -33,15 +33,15 @@ prompt the user for clarification.
 
 You will achieve the following outcomes:
 
-- The PR is merged.
+- The PR MUST be merged.
 
-- A single new squash commit exists on `main`. The message format is
+- A single new squash commit MUST exist on `main`, with the message format
   `audit: <short lowercase description>`.
 
-- The `audits/INDEX.md` file on `main` includes a new row for the newly-landed
-  audit report.
+- The `audits/INDEX.md` file on `main` MUST include a new row for the
+  newly-landed audit report.
 
-- The `audit/*` branch no longer exists in the upstream repository.
+- The `audit/*` branch MUST no longer exist in the upstream repository.
 
 ## Instructions
 

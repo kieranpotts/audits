@@ -40,17 +40,18 @@ prompt the user for clarification.
 
 You will achieve the following outcomes:
 
-- Branch `audit/<slug>` exists and is checked out.
+- Branch `audit/<slug>` MUST exist and be checked out.
 
-- `audits/YYYY-MM-DD-<slug>/README.md` exists. It follows the structure of
-  `audits/TEMPLATE.md`. The header section is filled in as best you can.
+- `audits/YYYY-MM-DD-<slug>/README.md` MUST exist, MUST follow the structure
+  of `audits/TEMPLATE.md`, and its header section MUST be filled in as best
+  you can.
 
-- `audits/INDEX.md` has a new row at the top of the list.
+- `audits/INDEX.md` MUST have a new row at the top of the list.
 
-- A draft pull request is open with the title
+- A draft pull request MUST be open with the title
   `audit: <short lowercase description>`.
 
-- The report's `Audit PR` header field names that pull request.
+- The report's `Audit PR` header field MUST name that pull request.
 
 ## Instructions
 
