@@ -71,19 +71,14 @@ You will achieve the following outcomes:
     ```
 
 4.  Copy `audits/TEMPLATE.md` to `audits/YYYY-MM-DD-<slug>/README.md`.
-
     YYYY-MM-DD is the current date.
 
-5.  Fill in the headers (auditors, audit date, scope) as best you can.
-
-    Leave the PR number — this is not yet known.
-
-    Leave other sections as placeholders.
+5.  Fill in the headers (auditors, audit date, scope) as best you can. Leave
+    the PR number — this is not yet known. Leave other sections as placeholders.
 
 6.  Append a row to `audits/INDEX.md`. Add the new entry to the top of the
-    table (newest first).
-
-    Fill in the date and scope. Leave the priority findings blank or "TBC".
+    table (newest first). Fill in the date and scope. Leave the priority
+    findings blank or "TBC".
 
 7.  Commit and push your changes.
 
@@ -102,7 +97,6 @@ You will achieve the following outcomes:
     If the `gh` client is unavailable or not authenticated, fail with an error.
 
 9.  Add the new PR number to the header field in the audit report file.
-
     Commit and push the change.
 
     ```sh

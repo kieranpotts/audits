@@ -71,10 +71,8 @@ You will achieve the following outcomes:
 
     If it is still a draft, stop and warn the user.
 
-3.  Confirm with the user that the PR is ready to be merged.
-
-    Do not proceed until they've given explicit permission to proceed further
-    than this step.
+3.  Confirm with the user that the PR is ready to be merged. Do not proceed
+    until they've given explicit permission to proceed further than this step.
 
 4.  Squash-merge the PR with the message `audit: <short lowercase description>`,
     and delete the source branch in the upstream repository.
