@@ -31,8 +31,6 @@ prompt the user for clarification.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 - The PR MUST be merged.
 
 - A single new squash commit MUST exist on `main`, with the message format

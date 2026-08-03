@@ -8,9 +8,13 @@ From an `audit/*` branch:
 
 > Complete audit.
 
+> Complete this audit.
+
 > Merge the audit.
 
 > This is completed.
+
+> This audit is complete.
 
 Or specify the target PR:
 

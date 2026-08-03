@@ -9,7 +9,13 @@ Run from an `audit/*` branch:
 
 > Review audit
 
+> Review this audit
+
 > This audit is ready for review.
+
+> Take the audit out of draft
+
+> Mark the audit ready for review
 
 Or specify the target PR:
 

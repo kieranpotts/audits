@@ -38,8 +38,6 @@ prompt the user for clarification.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 - Branch `audit/<slug>` MUST exist and be checked out.
 
 - `audits/YYYY-MM-DD-<slug>/README.md` MUST exist, MUST follow the structure

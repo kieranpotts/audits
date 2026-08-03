@@ -33,8 +33,6 @@ prompt the user for clarification.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 - The PR MUST no longer be a draft (`isDraft: false`).
 
 - The header metadata (auditors, audit date, scope, PR number) MUST be filled in.
