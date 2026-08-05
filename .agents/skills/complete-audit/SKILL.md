@@ -5,10 +5,8 @@ description: >-
   says something like "complete this audit", "this audit is complete",
   "merge the audit", "complete the most recent audit", or
   "complete #<pr-number>".
+compatibility: requires Read, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_STANDARD
 ---
 
 # Complete audit
