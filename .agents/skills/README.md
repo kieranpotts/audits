@@ -19,10 +19,10 @@ audit reports via AI agents.
 
 ```mermaid
 flowchart LR
-  draft["🤖<br/><b>draft-audit</b>"]:::agentic
+  draft["🤖🧑<br/><b>draft-audit</b>"]:::anthropic
   write["🧑<br/>audit architecture,<br/>write report"]:::anthropic
-  review["🤖<br/><b>review-audit</b>"]:::agentic
-  complete["🤖<br/><b>complete-audit</b>"]:::agentic
+  review["🤖🧑<br/><b>review-audit</b>"]:::anthropic
+  complete["🤖🧑<br/><b>complete-audit</b>"]:::anthropic
 
   draft ==> write
   write ==> review

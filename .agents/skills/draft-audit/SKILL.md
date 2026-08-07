@@ -1,19 +1,21 @@
 ---
 name: draft-audit
 description: >-
-  Draft an architecture audit report. Use this skill when the user wants to
-  start a new audit, or says something like "draft an audit",
-  "draft a new audit report", "prepare a new audit report",
-  "start an architectural review", or
-  "prepare an audit of <component-or-service>".
-compatibility: requires Read, Write, Edit, Bash (git/gh)
+  Scaffold the branch, report file, index row, and draft pull request for a
+  new architecture audit. Use when the user wants to start a new audit, or
+  says something like "draft an audit", "draft a new audit report", "prepare
+  a new audit report", "start an architectural review", or "prepare an audit
+  of <component-or-service>". Do not use it to evaluate the architecture or
+  to write the findings.
+compatibility: >-
+  requires Read, Write, Edit, Bash (git, gh, date)
 license: CC0-1.0
 ---
 
 # Draft audit
 
 Scaffold a new, blank architecture audit report, ready for the user to fill in.
-Do not evaluate the architecture, or help the user to write the findings into
+Do not evaluate the architecture, and do not help the user write findings into
 the report.
 
 ## Parameters
@@ -22,43 +24,53 @@ Determine the following information from the surrounding context and
 environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
-- **Scope — REQUIRED.** A description of the target software system, subsystem,
-  service, or other component that is the subject of the architecture audit.
-  This SHOULD be scoped to a version or commit — assume the `HEAD` commit if
-  you're not sure.
+- **Scope — REQUIRED.** A description of the target software system,
+  subsystem, service, or other component under audit. This SHOULD be pinned to
+  a version or commit, in the form `owner/repo@<commit>`. Assume the target's
+  `HEAD` commit if you cannot determine one.
 
 - **Auditors — OPTIONAL.** Assume the current team or organization are the
-  auditors. Can this be discovered from the target project's `AGENTS.md` file
-  or other sources?
+  auditors. Try to discover names and handles from the target project's
+  `AGENTS.md`, `README.md`, or Git history before asking.
 
-- **Audit date — OPTIONAL.** Assume it's happening today. Use the Unix command
-  `date` to determine the current date.
+- **Audit date — OPTIONAL.** Assume the audit is happening today. Read the
+  current date from the `date` command rather than from your own assumptions,
+  which may be stale.
 
 ## Success criteria
 
 - Branch `audit/<slug>` MUST exist and be checked out.
 
-- `audits/YYYY-MM-DD-<slug>/README.md` MUST exist, MUST follow the structure
-  of `audits/TEMPLATE.md`, and its header section MUST be filled in as best
-  you can.
+- `audits/YYYY-MM-DD-<slug>/README.md` MUST exist, and MUST follow the
+  structure of `audits/TEMPLATE.md`.
 
-- `audits/INDEX.md` MUST have a new row at the top of the list.
+- The report's header fields — auditors, audit date, audit PR, scope — MUST
+  all be filled in, with no template placeholder text left behind.
 
-- A draft pull request MUST be open with the title
+- `audits/INDEX.md` MUST carry a new row for this audit at the top of the
+  table.
+
+- A pull request MUST be open, in draft state, titled
   `audit: <short lowercase description>`.
 
-- The report's `Audit PR` header field MUST name that pull request.
+- The report's body sections MUST still hold the template's placeholder prose.
+  Scaffolding an audit produces an empty report; findings are the user's work,
+  written later.
+
+- Files outside `audits/YYYY-MM-DD-<slug>/` and `audits/INDEX.md` MUST be
+  unchanged, and the audited codebase MUST NOT have been modified at all.
 
 ## Instructions
 
-1.  From the scope, establish a short description of the audit, in the present
-    tense, full lowercase, and NOT terminated by a period. Keep this in memory.
+1.  From the scope, compose a short description of the audit: present tense,
+    full lowercase, not terminated by a period. Reuse it verbatim for the
+    commit message and the pull request title, so the two match.
 
-2.  Transform the description into a hyphen-delimited URL path slug. For
-    example, the description "payment service" becomes the slug
-    "payment-service", and "checkout api" becomes "checkout-api".
+2.  Transform that description into a hyphen-delimited URL path slug. For
+    example, "payment service" becomes `payment-service`, and "checkout api"
+    becomes `checkout-api`.
 
-3.  Create the branch.
+3.  Cut the branch from `main`.
 
     ```sh
     git checkout main
@@ -66,17 +78,18 @@ prompt the user for clarification.
     git checkout -b audit/<slug>
     ```
 
-4.  Copy `audits/TEMPLATE.md` to `audits/YYYY-MM-DD-<slug>/README.md`.
-    YYYY-MM-DD is the current date.
+4.  Copy `audits/TEMPLATE.md` to `audits/YYYY-MM-DD-<slug>/README.md`, where
+    `YYYY-MM-DD` is the audit date.
 
-5.  Fill in the headers (auditors, audit date, scope) as best you can. Leave
-    the PR number — this is not yet known. Leave other sections as placeholders.
+5.  Fill in the report's header fields — auditors, audit date, scope. Leave
+    the audit PR field as a placeholder for now; the number is not yet known.
+    Leave every other section exactly as the template wrote it.
 
-6.  Append a row to `audits/INDEX.md`. Add the new entry to the top of the
-    table (newest first). Fill in the date and scope. Leave the priority
-    findings blank or "TBC".
+6.  Prepend a row to the table in `audits/INDEX.md`, so the newest audit sits
+    at the top. Fill in the date and scope, and set the priority findings
+    column to "TBC".
 
-7.  Commit and push your changes.
+7.  Commit and push.
 
     ```sh
     git add audits/YYYY-MM-DD-<slug>/README.md audits/INDEX.md
@@ -84,38 +97,42 @@ prompt the user for clarification.
     git push -u origin audit/<slug>
     ```
 
-8.  Open a draft pull request.
+8.  Open the pull request in draft state.
 
     ```sh
     gh pr create --draft --title "audit: <short lowercase description>" --fill
     ```
 
-    If the `gh` client is unavailable or not authenticated, fail with an error.
+    If the `gh` client is unavailable or not authenticated, stop and report
+    the failure. Do not fall back to opening the pull request by other means.
 
-9.  Add the new PR number to the header field in the audit report file.
-    Commit and push the change.
+9.  Write the new pull request number into the report's audit PR header field,
+    then commit and push again.
 
     ```sh
     git add audits/YYYY-MM-DD-<slug>/README.md
-    git commit -m "chore: add pr number to architectural audit report"
-    git push -u origin audit/<slug>
+    git commit -m "chore: add pr number to architecture audit report"
+    git push
     ```
 
-10. Output a summary of your actions.
+10. Summarize what you did: the branch, the report path, the index row, and
+    the pull request number.
 
 ## Rules
 
-- There MUST be exactly one new audit report per branch and per pull request.
+- Each branch and pull request MUST carry exactly one new audit report.
 
-- You MUST branch from `main`, not from any other branch. If local `main` is
-  behind the remote, pull first. Use the rebase strategy to maintain a linear
-  history.
+  Audits are dated snapshots, indexed one row apiece. Bundling two into one
+  pull request makes them impossible to land, cite, or supersede separately.
 
-- You MUST stage and commit only the files you changed, including
-  `audits/INDEX.md`.
+- You MUST branch from `main`, never from another audit branch, and you MUST
+  pull with `--rebase` so history stays linear.
 
-- You SHOULD record the pull request number in the report's `Audit PR` header
-  field.
+- You MUST stage only the report file and `audits/INDEX.md`. Leave any
+  unrelated working-tree changes uncommitted.
 
-- You MUST NOT evaluate the architecture or write findings. This is
-  out-of-scope for this skill.
+- You MUST NOT evaluate the architecture or write findings into the report.
+  This skill scaffolds; the audit itself happens afterward.
+
+- You MUST NOT modify the codebase under audit. An architecture audit is
+  evaluation only, and this skill does not even reach the evaluation stage.
