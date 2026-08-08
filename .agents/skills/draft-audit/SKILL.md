@@ -51,7 +51,7 @@ prompt the user for clarification.
   table.
 
 - A pull request MUST be open, in draft state, titled
-  `audit: <short lowercase description>`.
+  `create: <short lowercase description>`.
 
 - The report's body sections MUST still hold the template's placeholder prose.
   Scaffolding an audit produces an empty report; findings are the user's work,
@@ -93,14 +93,14 @@ prompt the user for clarification.
 
     ```sh
     git add audits/YYYY-MM-DD-<slug>/README.md audits/INDEX.md
-    git commit -m "audit: <short lowercase description>"
+    git commit -m "create: <short lowercase description>"
     git push -u origin audit/<slug>
     ```
 
 8.  Open the pull request in draft state.
 
     ```sh
-    gh pr create --draft --title "audit: <short lowercase description>" --fill
+    gh pr create --draft --title "create: <short lowercase description>" --fill
     ```
 
     If the `gh` client is unavailable or not authenticated, stop and report

@@ -31,7 +31,7 @@ prompt the user for clarification.
   one.
 
   ```sh
-  gh pr list --draft --search "audit:" --json number,title,headRefName
+  gh pr list --draft --search "create:" --json number,title,headRefName
   ```
 
 ## Success criteria

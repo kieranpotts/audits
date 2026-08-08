@@ -34,13 +34,13 @@ On opening this PR (open it as a draft):
 Mark this PR ready for review when:
 
 - [ ] No generic template text or unfilled placeholders remain.
-- [ ] The PR title follows `audit: <description>` — a short prose title,
-      written full lowercase, eg. `audit: payment service architecture review`.
+- [ ] The PR title follows `create: <description>` — a short prose title,
+      written full lowercase, eg. `create: payment service architecture review`.
 
 Merge this PR when:
 
 - [ ] Review feedback is resolved.
-- [ ] The PR is set to squash-merge with the commit message `audit: <description>`.
+- [ ] The PR is set to squash-merge with the commit message `update: <description>`.
 
 After merging, complete these tasks:
 

@@ -29,7 +29,7 @@ prompt the user for clarification.
   one.
 
   ```sh
-  gh pr list --search "audit:" --json number,title,headRefName
+  gh pr list --search "create:" --json number,title,headRefName
   ```
 
 ## Success criteria
@@ -37,7 +37,7 @@ prompt the user for clarification.
 - The pull request MUST be merged.
 
 - A single new squash commit MUST exist on `main`, its message taking the form
-  `audit: <short lowercase description>`.
+  `update: <short lowercase description>`.
 
 - `audits/INDEX.md` on `main` MUST carry a row for the newly-landed report,
   pointing at its directory.
@@ -89,7 +89,7 @@ prompt the user for clarification.
 
     ```sh
     gh pr merge <number> --squash \
-      --subject "audit: <short lowercase description>" --delete-branch
+      --subject "update: <short lowercase description>" --delete-branch
     ```
 
 6.  If the branch survived the merge, delete it upstream directly.

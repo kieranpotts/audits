@@ -43,17 +43,17 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 6.  Prepend a row to the [audit index](./audits/INDEX.md).
 
-7.  Commit your changes, using the format `audit: <description>`, where
+7.  Commit your changes, using the format `create: <description>`, where
     `<description>` is a short prose title, written full lowercase, eg.
-    `audit: payment service architecture review`.
+    `create: payment service architecture review`.
 
 8.  Push the branch and open a pull request as a draft, using the same
-    `audit: <description>` title.
+    `create: <description>` title.
 
 9.  Write the new pull request number into the report's audit PR header
     field, and commit that change separately: `chore: add pr number to
     architecture audit report`. This edit carries no audit content of its
-    own, so it takes `chore:` rather than `audit:`.
+    own, so it takes `chore:` rather than `create:`.
 
 10. When the report is ready for review, transition the pull request out of
     its draft state.
@@ -63,7 +63,7 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 12. Resolve PR comments.
 
 13. Once the review is complete, squash-merge the pull request, with the
-    commit message taking the form `audit: <description>`. Delete the
+    commit message taking the form `update: <description>`. Delete the
     `audit/*` branch.
 
 ## Rules
