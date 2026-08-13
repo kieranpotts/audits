@@ -10,7 +10,7 @@ The focus here is on the mechanics and guardrails of the process. See the
 
 Audits may be run by anyone with write access to this repository.
 
-See also [TS-3](https://github.com/kieranpotts/standards/tree/latest/dev/src/003)
+See also [TS-3](https://kieranpotts.com/standards/003)
 for the technical standard that underpins this process.
 
 ****
