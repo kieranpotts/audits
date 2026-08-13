@@ -14,15 +14,15 @@ or run.
 
 ## Project structure
 
-- **`audits/`:** One directory per audit report (`audits/YYYY-MM-DD-<slug>/`),
+- `audits/`. One directory per audit report (`audits/YYYY-MM-DD-<slug>/`),
   dated by when the audit was performed.
 
-  - **`audits/INDEX.md`** is the catalog of every audit merged into `main`,
+  - `audits/INDEX.md` is the catalog of every audit merged into `main`,
     newest first.
 
-  - **`audits/TEMPLATE.md`** is the starting point for a new audit report.
+  - `audits/TEMPLATE.md` is the starting point for a new audit report.
 
-- **`docs/`:** General guidance for humans on running and maintaining audits.
+- `docs/`. General guidance for humans on running and maintaining audits.
 
 ## Workflow
 
@@ -49,6 +49,6 @@ relying on your memory of a prior state of the rules.
 
 ## Skills
 
-The **`.agents/skills/`** directory provides on-demand skills for maintaining
+The `.agents/skills/` directory provides on-demand skills for maintaining
 this repository. See the [README](./.agents/skills/README.md) for descriptions
 of the available skills and their triggers.
