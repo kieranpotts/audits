@@ -39,7 +39,7 @@ prompt the user for clarification.
 
 ## Success criteria
 
-- Branch `audit/<slug>` MUST exist and be checked out.
+- Branch `latest/audit/<slug>` MUST exist and be checked out.
 
 - `audits/YYYY-MM-DD-<slug>/README.md` MUST exist, and MUST follow the
   structure of `audits/TEMPLATE.md`.
@@ -70,12 +70,12 @@ prompt the user for clarification.
     example, "payment service" becomes `payment-service`, and "checkout api"
     becomes `checkout-api`.
 
-3.  Cut the branch from `main`.
+3.  Cut the branch from `latest/main`.
 
     ```sh
-    git checkout main
+    git checkout latest/main
     git pull --rebase
-    git checkout -b audit/<slug>
+    git checkout -b latest/audit/<slug>
     ```
 
 4.  Copy `audits/TEMPLATE.md` to `audits/YYYY-MM-DD-<slug>/README.md`, where
@@ -94,7 +94,7 @@ prompt the user for clarification.
     ```sh
     git add audits/YYYY-MM-DD-<slug>/README.md audits/INDEX.md
     git commit -m "create: <short lowercase description>"
-    git push -u origin audit/<slug>
+    git push -u origin latest/audit/<slug>
     ```
 
 8.  Open the pull request in draft state.
@@ -125,8 +125,8 @@ prompt the user for clarification.
   Audits are dated snapshots, indexed one row apiece. Bundling two into one
   pull request makes them impossible to land, cite, or supersede separately.
 
-- You MUST branch from `main`, never from another audit branch, and you MUST
-  pull with `--rebase` so history stays linear.
+- You MUST branch from `latest/main`, never from another audit branch, and you
+  MUST pull with `--rebase` so history stays linear.
 
 - You MUST stage only the report file and `audits/INDEX.md`. Leave any
   unrelated working-tree changes uncommitted.

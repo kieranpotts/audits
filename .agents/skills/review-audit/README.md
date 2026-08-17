@@ -13,14 +13,15 @@ to report gaps rather than fix them, so the report's content is never touched.
 
 This skill is interactive, but only barely. The agent may ask you which audit
 report to check, and it only does so when it cannot infer the target from the
-checked-out `audit/<slug>` branch — for example when you run it from `main`.
+checked-out `latest/audit/<slug>` branch — for example when you run it from
+`latest/main`.
 
 Run it from the audit branch, or name the pull request in your prompt, and it
 will complete without stopping to ask anything.
 
 ## How to invoke
 
-Run from an `audit/*` branch:
+Run from an `latest/audit/*` branch:
 
 > Review audit.
 
@@ -54,7 +55,7 @@ flowchart LR
   draft["🤖🧑<br/>draft the report"]:::anthropic
   write["🧑<br/>audit architecture,<br/>write findings"]:::anthropic
   review["🤖🧑<br/>ready for review"]:::anthropic
-  complete["🤖🧑<br/>land in main"]:::anthropic
+  complete["🤖🧑<br/>land in latest/main"]:::anthropic
 
   %% Main workflow sequence.
   draft ==> write
@@ -75,7 +76,7 @@ flowchart LR
 
 - [**complete-audit**](../complete-audit/) \
   Runs next, once review feedback is settled, squash-merging the report into
-  `main`.
+  `latest/main`.
 
 ## References
 

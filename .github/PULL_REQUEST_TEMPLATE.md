@@ -14,7 +14,7 @@ the report (the whole system or a specific part of it).
 
 On opening this PR (open it as a draft):
 
-- [ ] The branch is named `audit/<slug>`.
+- [ ] The branch is named `latest/audit/<slug>`.
 - [ ] The report is saved at `audits/YYYY-MM-DD-<slug>/README.md`, with the
       metadata header filled in.
 - [ ] Supporting artifacts live under `audits/YYYY-MM-DD-<slug>/` and are
@@ -44,8 +44,8 @@ Merge this PR when:
 
 After merging, complete these tasks:
 
-- Delete the `audit/*` branch.
+- Delete the `latest/audit/*` branch.
 
 > [!IMPORTANT]
-> Audit reports on `main` are immutable snapshots in time, not living
+> Audit reports on `latest/main` are immutable snapshots in time, not living
 > documentation. Do NOT edit a merged report — file a new audit instead.

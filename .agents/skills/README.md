@@ -5,15 +5,15 @@ audit reports via AI agents.
 
 - **[draft-audit](./draft-audit/):** \
   Scaffolds a new, blank audit report.
-  Cuts an `audit/<slug>` branch from `main`, prepares a fresh report from the
-  template, and opens a pull request in a draft state.
+  Cuts an `latest/audit/<slug>` branch from `latest/main`, prepares a fresh report from
+  the template, and opens a pull request in a draft state.
 
 - **[review-audit](./review-audit/):** \
   Checks an audit report has enough substance for review, and takes its pull
   request out of draft.
 
 - **[complete-audit](./complete-audit/):** \
-  Checks an audit report and merges it into the `main` trunk.
+  Checks an audit report and merges it into the `latest/main` trunk.
 
 ## Workflow
 

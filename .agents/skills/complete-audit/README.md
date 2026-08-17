@@ -1,13 +1,13 @@
 # Complete audit
 
-Checks an audit report is settled, then squash-merges it into the `main`
+Checks an audit report is settled, then squash-merges it into the `latest/main`
 trunk.
 
 Before merging, the agent verifies the pull request is out of draft, that no
 review threads are left unresolved, and that the report's row is present in
-`audits/INDEX.md`. It then asks you to confirm, squash-merges, and deletes the
-`audit/<slug>` branch upstream. The report's content is never edited — once on
-`main`, an audit report is an immutable snapshot.
+`latest/audits/INDEX.md`. It then asks you to confirm, squash-merges, and deletes the
+`latest/audit/<slug>` branch upstream. The report's content is never edited — once on
+`latest/main`, an audit report is an immutable snapshot.
 
 ## Interactivity
 
@@ -17,11 +17,11 @@ to land when it cannot infer the target from the checked-out branch.
 
 Because the confirmation gate is unconditional, this skill cannot be used in
 unattended, away-from-keyboard workflows. That is intentional: merging is
-irreversible in practice, since reports on `main` are never amended.
+irreversible in practice, since reports on `latest/main` are never amended.
 
 ## How to invoke
 
-From an `audit/*` branch:
+From a `latest/audit/*` branch:
 
 > Complete audit.
 
@@ -47,8 +47,8 @@ a little more reasoning than the other steps in this workflow.
 
 Run this last, after review feedback has been gathered and resolved. Do not
 run it to "tidy up" a stale audit branch whose report was never finished:
-an incomplete report on `main` cannot be fixed later, only superseded by a
-whole new audit.
+an incomplete report on `latest/main` cannot be fixed later, only superseded
+by a whole new audit.
 
 ```mermaid
 flowchart LR
@@ -56,7 +56,7 @@ flowchart LR
   draft["🤖🧑<br/>draft the report"]:::anthropic
   write["🧑<br/>audit architecture,<br/>write findings"]:::anthropic
   review["🤖🧑<br/>ready for review"]:::anthropic
-  complete["🤖🧑<br/>land in main"]:::anthropic
+  complete["🤖🧑<br/>land in latest/main"]:::anthropic
 
   %% Main workflow sequence.
   draft ==> write

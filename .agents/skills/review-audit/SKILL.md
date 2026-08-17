@@ -25,10 +25,10 @@ environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
 - **Target — REQUIRED.** The audit report to check. Infer it from the
-  checked-out branch, which follows the pattern `audit/<slug>`; the report is
-  then the sole `audits/YYYY-MM-DD-<slug>/README.md` on that branch. If `main`
-  is checked out, list the open draft pull requests and ask the user to pick
-  one.
+  checked-out branch, which follows the pattern `latest/audit/<slug>`; the
+  report is then the sole `audits/YYYY-MM-DD-<slug>/README.md` on that branch.
+  If `latest/main` is checked out, list the open draft pull requests and ask the
+  user to pick one.
 
   ```sh
   gh pr list --draft --search "create:" --json number,title,headRefName

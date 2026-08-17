@@ -19,7 +19,7 @@ as shallow abstractions, tangled dependencies, single-caller wrappers, leaky
 boundaries, and repeated patterns.
 
 Each audit report is a snapshot in time, and so immutable once merged into the
-`main` trunk. By comparison, [design docs](https://github.com/kieranpotts/design)
+`latest/main` trunk. By comparison, [design docs](https://github.com/kieranpotts/design)
 evolve in lock-step with the production system.
 
 An architectural audit is evaluation only. It is not the role of audit reports
@@ -81,7 +81,7 @@ better to fold all documentation into the same repository.
   Every audit report, one directory per audit.
 
   - The [`INDEX`](./audits/INDEX.md) lists every audit merged
-    into `main`, newest first.
+    into `latest/main`, newest first.
 
   - The [`TEMPLATE`](./audits/TEMPLATE.md) is the starting
     point for a new audit.

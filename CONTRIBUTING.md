@@ -28,7 +28,7 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 1.  Decide the target codebase(s) to audit – the repositories, services, or
     filesystem directories.
 
-2.  Branch off `main` using the convention `audit/<slug>`, where `<slug>`
+2.  Branch off `latest/main` using the convention `audit/<slug>`, where `<slug>`
     is a short, hyphen-delimited description, eg. `audit/payment-service`.
 
 3.  Do your audit against the target codebase. See the [documentation](./docs/)
@@ -98,8 +98,8 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
   "the API schema is inconsistent" cannot be easily actioned.
 
 - Once merged, an audit report MUST NOT be further edited. Audit reports on
-  `main` MUST be treated as immutable, since they are snapshots in time, not
-  living documentation. Reassessments of the architecture are done by adding
+  `latest/main` MUST be treated as immutable, since they are snapshots in time,
+  not living documentation. Reassessments of the architecture are done by adding
   new audit reports, not by amending previous ones.
 
 - The GitHub issue tracker SHOULD be used only for maintenance work on this

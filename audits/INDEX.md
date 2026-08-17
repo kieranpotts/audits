@@ -1,6 +1,6 @@
 # Audit index
 
-This is a catalog of every audit report merged into `main`.
+This is a catalog of every audit report merged into `latest/main`.
 
 The index is an append-only stack. Reports are treated as immutable once they
 are added to the index.

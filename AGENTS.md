@@ -17,7 +17,7 @@ or run.
 - `audits/`. One directory per audit report (`audits/YYYY-MM-DD-<slug>/`),
   dated by when the audit was performed.
 
-  - `audits/INDEX.md` is the catalog of every audit merged into `main`,
+  - `audits/INDEX.md` is the catalog of every audit merged into `latest/main`,
     newest first.
 
   - `audits/TEMPLATE.md` is the starting point for a new audit report.
@@ -30,7 +30,7 @@ This is not living documentation and there is no lifecycle state machine for
 audit reports.
 
 Each audit report is a snapshot in time, true at the moment it was performed,
-and immutable once merged into `main`.
+and immutable once merged into `latest/main`.
 
 See [CONTRIBUTING.md > Workflow](./CONTRIBUTING.md#workflow) for the
 step-by-step process for running an audit and landing its report.
@@ -39,7 +39,7 @@ It is RECOMMENDED to follow the [draft audit](./.agents/skills/draft-audit/)
 skill to prepare a new report, the [review audit](./.agents/skills/review-audit/)
 skill to take it out of draft, and the
 [complete audit](./.agents/skills/complete-audit/) skill to land it in the
-`main` trunk.
+`latest/main` trunk.
 
 ## Rules
 

@@ -2,11 +2,11 @@
 
 Scaffolds a new, blank architecture audit report.
 
-Cuts an `audit/<slug>` branch from `main`, copies `audits/TEMPLATE.md` into
-`audits/YYYY-MM-DD-<slug>/README.md`, fills in the header metadata, prepends a
-row to `audits/INDEX.md`, and opens a draft pull request. The body of the
-report is left as template placeholders — the agent is explicitly told not to
-evaluate the architecture or write findings.
+Cuts an `latest/audit/<slug>` branch from `latest/main`, copies `audits/TEMPLATE.md`
+into `audits/YYYY-MM-DD-<slug>/README.md`, fills in the header metadata,
+prepends a row to `audits/INDEX.md`, and opens a draft pull request. The body of
+the report is left as template placeholders — the agent is explicitly told not
+to evaluate the architecture or write findings.
 
 ## Interactivity
 
@@ -51,7 +51,7 @@ flowchart LR
   draft["🤖🧑<br/>draft the report"]:::anthropic
   write["🧑<br/>audit architecture,<br/>write findings"]:::anthropic
   review["🤖🧑<br/>ready for review"]:::anthropic
-  complete["🤖🧑<br/>land in main"]:::anthropic
+  complete["🤖🧑<br/>land in latest/main"]:::anthropic
 
   %% Main workflow sequence.
   draft ==> write
@@ -75,7 +75,7 @@ new report — which is exactly what this skill produces.
   in on. It takes the pull request this skill opened out of draft.
 
 - [**complete-audit**](../complete-audit/) \
-  Runs last, squash-merging the pull request this skill opened into `main`
+  Runs last, squash-merging the pull request this skill opened into `latest/main`
   and deleting the `audit/<slug>` branch.
 
 ## References

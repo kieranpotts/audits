@@ -1,7 +1,7 @@
 ---
 name: complete-audit
 description: >-
-  Land an architecture audit report in the `main` trunk by squash-merging its
+  Land an architecture audit report in the `latest/main` trunk by squash-merging its
   pull request and deleting the audit branch. Use when the user says something
   like "complete this audit", "this audit is complete", "merge the audit",
   "complete the most recent audit", or "complete #<pr-number>". Do not use it
@@ -13,9 +13,9 @@ license: CC0-1.0
 
 # Complete audit
 
-Check that an audit report is settled, then squash-merge it into the `main`
-trunk and delete its branch upstream. Do not edit the report on the way
-through, and do not merge without the user's say-so.
+Check that an audit report is settled, then squash-merge it into the
+`latest/main` trunk and delete its branch upstream. Do not edit the report on
+the way through, and do not merge without the user's say-so.
 
 ## Parameters
 
@@ -24,9 +24,9 @@ environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
 - **Target — REQUIRED.** The audit report to land. Infer it from the
-  checked-out branch, which follows the pattern `audit/<slug>`. If `main` is
-  checked out, list the open non-draft pull requests and ask the user to pick
-  one.
+  checked-out branch, which follows the pattern `latest/audit/<slug>`. If
+  `latest/main` is checked out, list the open non-draft pull requests and ask
+  the user to pick one.
 
   ```sh
   gh pr list --search "create:" --json number,title,headRefName
@@ -36,13 +36,13 @@ prompt the user for clarification.
 
 - The pull request MUST be merged.
 
-- A single new squash commit MUST exist on `main`, its message taking the form
-  `update: <short lowercase description>`.
+- A single new squash commit MUST exist on `latest/main`, its message taking the
+  form `update: <short lowercase description>`.
 
-- `audits/INDEX.md` on `main` MUST carry a row for the newly-landed report,
+- `audits/INDEX.md` on `latest/main` MUST carry a row for the newly-landed report,
   pointing at its directory.
 
-- The `audit/<slug>` branch MUST no longer exist in the upstream repository.
+- The `latest/audit/<slug>` branch MUST no longer exist in the upstream repository.
 
 - The merge MUST have introduced no changes to the report's content. Reports
   are immutable snapshots, so landing one is a pure transport step.
@@ -95,7 +95,7 @@ prompt the user for clarification.
 6.  If the branch survived the merge, delete it upstream directly.
 
     ```sh
-    git push origin --delete audit/<slug>
+    git push origin --delete latest/audit/<slug>
     ```
 
 7.  Summarize what you did: the report landed, the squash commit, and the
@@ -109,18 +109,18 @@ prompt the user for clarification.
   instructs you to.
 
 - You MUST use the squash-merge strategy, so each audit report lands as
-  exactly one commit on `main`.
+  exactly one commit on `latest/main`.
 
 - You MUST NOT edit the report's content, or the audit index, as part of
-  landing it. Once a report is on `main` it is immutable; a reassessment is a
-  new report, never an amendment to an old one.
+  landing it. Once a report is on `latest/main` it is immutable; a reassessment
+  is a new report, never an amendment to an old one.
 
-- You SHOULD NOT delete the local `audit/<slug>` branch. Leave that cleanup to
-  the user, who may still want the working copy.
+- You SHOULD NOT delete the local `latest/audit/<slug>` branch. Leave that
+  cleanup to the user, who may still want the working copy.
 
 ## Edge cases
 
-- The merge is blocked by a merge conflict against `main`.
+- The merge is blocked by a merge conflict against `latest/main`.
 
   Stop and report it. Rebasing an audit branch touches the index file that
   both sides changed, and the resolution is the user's call, not yours.
