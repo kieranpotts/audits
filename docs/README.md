@@ -11,3 +11,6 @@ General guidance for humans on running and maintaining architectural audits.
 
 - [**Contributing**](../CONTRIBUTING.md) \
   The mechanics of the audit workflow.
+
+- [**🛠️ Development tools and methods**](./development/) \
+  Maintaining this repository itself, including its GitHub configuration.
